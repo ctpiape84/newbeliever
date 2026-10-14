@@ -14,7 +14,6 @@
             --secondary-color: #d4af37;
             --accent-color: #b8860b;
             --light-color: #f8f9fa;
-            --dark-color: #2c3e50;
             --text-color: #333;
             --text-light: #777;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -51,60 +50,37 @@
         .nav-links li { margin-left: 2rem; }
         .nav-links a { color: white; text-decoration: none; font-weight: 500; transition: var(--transition); }
         .nav-links a:hover { color: var(--secondary-color); }
-
         .nav-links a.active { color: var(--secondary-color) !important; font-weight: 600; position: relative; }
         .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -5px; left: 0;
-            width: 100%; height: 2px;
-            background-color: var(--secondary-color);
-            animation: slideIn 0.3s ease;
+            content: ''; position: absolute; bottom: -5px; left: 0;
+            width: 100%; height: 2px; background-color: var(--secondary-color);
         }
-
-        @keyframes slideIn { from { width: 0; } to { width: 100%; } }
 
         .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
 
         .hero {
             background: linear-gradient(rgba(26, 71, 42, 0.8), rgba(26, 71, 42, 0.8)),
                 url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 150px 0 100px;
-            text-align: center;
+            background-size: cover; background-position: center;
+            color: white; padding: 150px 0 100px; text-align: center;
         }
 
         .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
         .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
 
         .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 12px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
+            display: inline-block; background-color: var(--secondary-color); color: var(--primary-color);
+            padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: 600;
+            transition: var(--transition); border: none; cursor: pointer;
         }
-
         .btn:hover { background-color: var(--accent-color); transform: translateY(-3px); box-shadow: var(--shadow); }
 
         section { padding: 80px 0; }
-
         .section-title { text-align: center; margin-bottom: 3rem; }
         .section-title h2 { font-size: 2.5rem; color: var(--primary-color); position: relative; display: inline-block; padding-bottom: 10px; }
         .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 80px; height: 4px;
-            background-color: var(--secondary-color);
+            content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 80px; height: 4px; background-color: var(--secondary-color);
         }
 
         .about-content { display: flex; align-items: center; gap: 3rem; }
@@ -120,54 +96,30 @@
 
         .timeline { position: relative; max-width: 1000px; margin: 0 auto; }
         .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--secondary-color);
-            top: 0; bottom: 0; left: 50%;
-            margin-left: -3px;
+            content: ''; position: absolute; width: 6px; background-color: var(--secondary-color);
+            top: 0; bottom: 0; left: 50%; margin-left: -3px;
         }
-
         .timeline-item { padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box; }
         .timeline-item:nth-child(odd) { left: 0; }
         .timeline-item:nth-child(even) { left: 50%; }
-
         .timeline-content {
-            padding: 28px 32px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            min-height: 190px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid #f8f9fa;
+            padding: 28px 32px; background: white; border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); min-height: 190px;
+            transition: all 0.3s ease; position: relative; border: 1px solid #f8f9fa;
         }
-
         .timeline-content:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); border-color: var(--secondary-color); }
-        .timeline-content h3 { transition: var(--transition); position: relative; z-index: 2; margin-bottom: 10px; color: var(--primary-color); font-size: 1.3rem; }
-        .timeline-content .date { transition: var(--transition); position: relative; z-index: 2; color: var(--secondary-color); font-weight: 600; margin-bottom: 10px; display: block; }
-        .timeline-content p { position: relative; z-index: 2; color: var(--text-light); line-height: 1.6; }
-
+        .timeline-content h3 { margin-bottom: 10px; color: var(--primary-color); font-size: 1.3rem; }
+        .timeline-content .date { color: var(--secondary-color); font-weight: 600; margin-bottom: 10px; display: block; }
+        .timeline-content p { color: var(--text-light); line-height: 1.6; }
         .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px; height: 20px;
-            background-color: white;
-            border: 4px solid var(--secondary-color);
-            border-radius: 50%;
-            top: 15px;
-            z-index: 1;
-            transition: var(--transition);
+            content: ''; position: absolute; width: 20px; height: 20px; background-color: white;
+            border: 4px solid var(--secondary-color); border-radius: 50%; top: 15px; z-index: 1;
         }
-
         .timeline-item:nth-child(odd)::after { right: -10px; }
         .timeline-item:nth-child(even)::after { left: -10px; }
 
         .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
-        .card { background-color: white; border-radius: 8px; box-shadow: var(--shadow); padding: 2rem; transition: var(--transition); border-top: 4px solid var(--secondary-color); min-height: 250px; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
+        .card { background-color: white; border-radius: 8px; box-shadow: var(--shadow); padding: 2rem; border-top: 4px solid var(--secondary-color); min-height: 250px; }
         .card h3 { color: var(--primary-color); margin-bottom: 1rem; font-size: 1.3rem; }
         .card p { color: var(--text-light); margin-bottom: 0.5rem; line-height: 1.6; }
 
@@ -178,9 +130,8 @@
 
         .training-container { max-width: 800px; margin: 0 auto; }
         .training-list { list-style: none; background-color: white; border-radius: 8px; box-shadow: var(--shadow); overflow: hidden; }
-        .training-item { padding: 1.5rem 2rem; display: flex; align-items: center; border-bottom: 1px solid #f0f0f0; transition: var(--transition); }
+        .training-item { padding: 1.5rem 2rem; display: flex; align-items: center; border-bottom: 1px solid #f0f0f0; }
         .training-item:last-child { border-bottom: none; }
-        .training-item:hover { background-color: #f9f9f9; }
         .training-date { min-width: 100px; font-weight: 600; color: var(--secondary-color); margin-right: 2rem; font-size: 1rem; }
         .training-name { flex-grow: 1; font-size: 1.1rem; color: var(--primary-color); }
 
@@ -196,73 +147,38 @@
 
         footer { background-color: var(--primary-color); color: white; padding: 3rem 0; text-align: center; }
         .social-links { display: flex; justify-content: center; margin-bottom: 2rem; }
-        .social-links a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.1); color: white; border-radius: 50%; margin: 0 10px; transition: var(--transition); }
-        .social-links a:hover { background-color: var(--secondary-color); color: var(--primary-color); transform: translateY(-3px); }
+        .social-links a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.1); color: white; border-radius: 50%; margin: 0 10px; }
+        .social-links a:hover { background-color: var(--secondary-color); color: var(--primary-color); }
 
         #scrollToTop {
-            position: fixed;
-            bottom: 30px; right: 30px;
-            width: 50px; height: 50px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            opacity: 0;
-            visibility: hidden;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
+            background-color: var(--secondary-color); color: var(--primary-color);
+            border: none; border-radius: 50%; font-size: 1.5rem; font-weight: bold;
+            cursor: pointer; box-shadow: var(--shadow); transition: var(--transition);
+            opacity: 0; visibility: hidden; z-index: 1000;
+            display: flex; align-items: center; justify-content: center;
         }
         #scrollToTop.show { opacity: 1; visibility: visible; }
-        #scrollToTop:hover { background-color: var(--accent-color); transform: translateY(-3px); }
 
         .pdf-notification {
-            position: fixed;
-            top: 100px; right: 20px;
-            background: white;
-            padding: 15px 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-left: 4px solid #4CAF50;
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            max-width: 300px;
-            animation: slideInRight 0.3s ease;
+            position: fixed; top: 100px; right: 20px; background: white;
+            padding: 15px 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid #4CAF50; z-index: 10000; display: flex;
+            align-items: center; gap: 15px; max-width: 300px;
         }
         .pdf-notification.error { border-left-color: #f44336; }
         .pdf-notification button { background: none; border: none; font-size: 18px; cursor: pointer; color: #666; }
 
-        @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-
-        /* Loading overlay */
         .loading-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 99999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 1rem;
-            color: white;
-            font-size: 1.2rem;
+            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6);
+            z-index: 99999; display: flex; align-items: center; justify-content: center;
+            flex-direction: column; gap: 1rem; color: white; font-size: 1.2rem;
         }
         .spinner {
-            width: 50px;
-            height: 50px;
+            width: 50px; height: 50px;
             border: 5px solid rgba(255, 255, 255, 0.3);
             border-top-color: var(--secondary-color);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+            border-radius: 50%; animation: spin 0.8s linear infinite;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
 
@@ -270,24 +186,17 @@
 
         @media (max-width: 768px) {
             .hamburger { display: block; }
-            .nav-links { position: fixed; top: 70px; right: -100%; flex-direction: column; background-color: var(--primary-color); width: 100%; text-align: center; transition: var(--transition); box-shadow: var(--shadow); }
+            .nav-links { position: fixed; top: 70px; right: -100%; flex-direction: column; background-color: var(--primary-color); width: 100%; text-align: center; transition: var(--transition); }
             .nav-links.active { right: 0; }
             .nav-links li { margin: 1rem 0; }
             .hero-content h1 { font-size: 2.5rem; }
             .timeline::after { left: 31px; }
             .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
             .timeline-item:nth-child(even) { left: 0; }
-            .timeline-item::after { left: 21px; }
-            .timeline-item:nth-child(odd)::after, .timeline-item:nth-child(even)::after { left: 21px; }
+            .timeline-item::after, .timeline-item:nth-child(odd)::after, .timeline-item:nth-child(even)::after { left: 21px; }
             .timeline-content { min-height: auto; padding: 20px; }
             .training-item { flex-direction: column; align-items: flex-start; padding: 1.2rem 1.5rem; }
             .training-date { margin-right: 0; margin-bottom: 0.5rem; min-width: auto; }
-        }
-
-        @media (max-width: 576px) {
-            .hero-content h1 { font-size: 2rem; }
-            .section-title h2 { font-size: 2rem; }
-            .cards-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -559,9 +468,7 @@
         // ============ MOBILE NAV ============
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('nav-links');
-
         hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
-
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => { navLinks.classList.remove('active'); });
         });
@@ -573,28 +480,6 @@
             this.reset();
         });
 
-        // ============ MENU HIGHLIGHT ============
-        function highlightMenuOnScroll() {
-            const sections = document.querySelectorAll('section');
-            const links = document.querySelectorAll('.nav-links a');
-            let currentSection = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-
-            links.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
         // ============ SCROLL TO TOP ============
         function createScrollToTopButton() {
             const scrollBtn = document.createElement('button');
@@ -602,9 +487,7 @@
             scrollBtn.setAttribute('id', 'scrollToTop');
             scrollBtn.setAttribute('title', 'Scroll to top');
             document.body.appendChild(scrollBtn);
-
             scrollBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
-
             window.addEventListener('scroll', () => {
                 if (window.pageYOffset > 300) scrollBtn.classList.add('show');
                 else scrollBtn.classList.remove('show');
@@ -633,226 +516,273 @@
             if (overlay) overlay.remove();
         }
 
-        // ============ ATS CV BUILDER (returns HTML string) ============
-        // IMPORTANT: This is built as a hidden element INSIDE the visible DOM, but
-        // we temporarily make it visible (with opacity 0 / pointer-events none) so
-        // html2canvas can render it properly. Blank PDFs were caused by off-screen positioning.
-        function buildATSCVElement() {
-            const wrapper = document.createElement('div');
-            wrapper.id = 'ats-cv-render';
-            // Position it far away but still rendered — do NOT use display:none or left:-9999px
-            wrapper.style.position = 'fixed';
-            wrapper.style.top = '0';
-            wrapper.style.left = '0';
-            wrapper.style.width = '210mm';
-            wrapper.style.minHeight = '297mm';
-            wrapper.style.background = '#ffffff';
-            wrapper.style.padding = '15mm 14mm';
-            wrapper.style.fontFamily = 'Arial, Helvetica, sans-serif';
-            wrapper.style.fontSize = '10.5pt';
-            wrapper.style.lineHeight = '1.45';
-            wrapper.style.color = '#000000';
-            wrapper.style.zIndex = '-1';
-            wrapper.style.pointerEvents = 'none';
-            wrapper.style.opacity = '0.01'; // slight visibility to force layout
-            wrapper.style.overflow = 'hidden';
+        // ============ ATS CV HTML (as a string) ============
+        // This will be injected into a new window that ONLY contains this content.
+        // No site CSS can interfere, no positioning issues, no blank canvas.
+        const ATS_CV_HTML = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Jennifel Arreza - CV</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"><\/script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10.5pt;
+        line-height: 1.45;
+        color: #000;
+        background: #fff;
+        padding: 0;
+    }
+    #cv {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 15mm 14mm;
+        background: #ffffff;
+        margin: 0 auto;
+    }
+    h1.name {
+        font-size: 20pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 4px;
+    }
+    .contact {
+        font-size: 10pt;
+        border-bottom: 1.5px solid #000;
+        padding-bottom: 8px;
+        margin-bottom: 14px;
+    }
+    .contact span { margin-right: 14px; }
+    h2.section {
+        font-size: 12pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        border-bottom: 1.2px solid #000;
+        padding-bottom: 3px;
+        margin-top: 14px;
+        margin-bottom: 8px;
+    }
+    .entry { margin-bottom: 10px; }
+    .entry-title { font-weight: 700; font-size: 11pt; }
+    .entry-date { font-size: 10pt; }
+    .entry-company { font-weight: 600; font-size: 10.5pt; margin-bottom: 3px; }
+    p { font-size: 10.5pt; margin-bottom: 6px; }
+    ul { margin: 3px 0 0 16px; padding: 0; list-style-type: disc; }
+    ul li { font-size: 10.5pt; margin-bottom: 3px; line-height: 1.45; }
+    table.refs { width: 100%; border-collapse: collapse; font-size: 10.5pt; }
+    table.refs td { vertical-align: top; width: 50%; padding-right: 12px; }
+    .ref-name { font-weight: 700; }
+</style>
+</head>
+<body>
+<div id="cv">
+    <h1 class="name">Jennifel Arreza</h1>
+    <div class="contact">
+        <span>Discovery Bay, Hong Kong</span>
+        <span>+852 6438 5951</span>
+        <span>gjlance@yahoo.com</span>
+    </div>
 
-            wrapper.innerHTML = `
-                <div style="font-size:20pt;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;color:#000;">Jennifel Arreza</div>
-                <div style="font-size:10pt;color:#000;border-bottom:1.5px solid #000;padding-bottom:8px;margin-bottom:14px;">
-                    Discovery Bay, Hong Kong &nbsp;|&nbsp; +852 6438 5951 &nbsp;|&nbsp; gjlance@yahoo.com
-                </div>
+    <h2 class="section">Professional Summary</h2>
+    <p>Hospitality Management Professional with 10+ years of experience in luxury hotel operations, guest services, and team leadership. Proven track record in managing outlets, optimizing revenue, and delivering exceptional guest experiences. Adept at staff training, quality assurance, and operational efficiency.</p>
 
-                <div style="font-size:12pt;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-bottom:1.2px solid #000;padding-bottom:3px;margin-top:14px;margin-bottom:8px;color:#000;">Professional Summary</div>
-                <p style="font-size:10.5pt;color:#000;margin:0 0 6px 0;line-height:1.45;">
-                    Hospitality Management Professional with 10+ years of experience in luxury hotel operations, guest
-                    services, and team leadership. Proven track record in managing outlets, optimizing revenue, and
-                    delivering exceptional guest experiences. Adept at staff training, quality assurance, and
-                    operational efficiency.
-                </p>
+    <h2 class="section">Core Competencies</h2>
+    <p>Hotel Operations; Guest Relations; Team Leadership; Revenue Management; Event Planning; Quality Assurance; Staff Training; Luxury Service Standards; Inventory Control; Budgeting; HACCP; Crisis Management</p>
 
-                <div style="font-size:12pt;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-bottom:1.2px solid #000;padding-bottom:3px;margin-top:14px;margin-bottom:8px;color:#000;">Core Competencies</div>
-                <p style="font-size:10.5pt;color:#000;margin:0 0 6px 0;line-height:1.45;">
-                    Hotel Operations; Guest Relations; Team Leadership; Revenue Management; Event Planning; Quality
-                    Assurance; Staff Training; Luxury Service Standards; Inventory Control; Budgeting; HACCP; Crisis
-                    Management
-                </p>
+    <h2 class="section">Work Experience</h2>
 
-                <div style="font-size:12pt;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-bottom:1.2px solid #000;padding-bottom:3px;margin-top:14px;margin-bottom:8px;color:#000;">Work Experience</div>
+    <div class="entry">
+        <div class="entry-title">Restaurant Manager</div>
+        <div class="entry-date">December 2023 – November 2026</div>
+        <div class="entry-company">IlBelPaese Group (Italian Restaurants), Hong Kong</div>
+        <ul>
+            <li>Oversee day-to-day operations of all outlets, ensuring efficiency and effectiveness across production and service delivery.</li>
+            <li>Coordinate different departments, set and review budgets, and implement operational policies.</li>
+        </ul>
+    </div>
 
-                <div style="margin-bottom:10px;">
-                    <div style="font-weight:700;font-size:11pt;color:#000;">Restaurant Manager</div>
-                    <div style="font-size:10pt;color:#000;">December 2023 – November 2026</div>
-                    <div style="font-weight:600;font-size:10.5pt;color:#000;margin-bottom:3px;">IlBelPaese Group (Italian Restaurants), Hong Kong</div>
-                    <ul style="margin:3px 0 0 16px;padding:0;list-style-type:disc;">
-                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Oversee day-to-day operations of all outlets, ensuring efficiency and effectiveness across production and service delivery.</li>
-                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Coordinate different departments, set and review budgets, and implement operational policies.</li>
-                    </ul>
-                </div>
+    <div class="entry">
+        <div class="entry-title">Outlet Manager</div>
+        <div class="entry-date">March 2017 – December 2023</div>
+        <div class="entry-company">Asiana Hotel, Dubai (5-Star Hotel), Dubai, UAE</div>
+        <ul>
+            <li>Managed daily restaurant operations including menu selection, development, and performance management of employees.</li>
+            <li>Maintained high production, productivity, quality, and customer-service standards.</li>
+            <li>Optimized profits and ensured guest satisfaction with dining experience.</li>
+        </ul>
+    </div>
 
-                <div style="margin-bottom:10px;">
-                    <div style="font-weight:700;font-size:11pt;color:#000;">Outlet Manager</div>
-                    <div style="font-size:10pt;color:#000;">March 2017 – December 2023</div>
-                    <div style="font-weight:600;font-size:10.5pt;color:#000;margin-bottom:3px;">Asiana Hotel, Dubai (5-Star Hotel), Dubai, UAE</div>
-                    <ul style="margin:3px 0 0 16px;padding:0;list-style-type:disc;">
-                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Managed daily restaurant operations including menu selection, development, and performance management of employees.</li>
-                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Maintained high production, productivity, quality, and customer-service standards.</li>
-                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Optimized profits and ensured guest satisfaction with dining experience.</li>
-                    </ul>
-                </div>
+    <div class="entry">
+        <div class="entry-title">Outlet Assistant Manager</div>
+        <div class="entry-date">March 2011 – March 2017</div>
+        <div class="entry-company">Asiana Hotel, Dubai (5-Star Hotel), Dubai, UAE</div>
+        <ul>
+            <li>Assisted in managing daily restaurant operations, including selection, development, and performance management of employees.</li>
+            <li>Oversaw inventory and ordering of food and supplies, optimized profits, and ensured guest satisfaction.</li>
+        </ul>
+    </div>
 
-                <div style="margin-bottom:10px;">
-                    <div style="font-weight:700;font-size:11pt;color:#000;">Outlet Assistant Manager</div>
-                    <div style="font-size:10pt;color:#000;">March 2011 – March 2017</div>
-                    <div style="font-weight:600;font-size:10.5pt;color:#000;margin-bottom:3px;">Asiana Hotel, Dubai (5-Star Hotel), Dubai, UAE</div>
-                    <ul style="margin:3px 0 0 16px;padding:0;list-style-type:disc;">
-                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Assisted in managing daily restaurant operations, including selection, development, and performance management of employees.</li>
-                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Oversaw inventory and ordering of food and supplies, optimized profits, and ensured guest satisfaction.</li>
-                    </ul>
-                </div>
+    <div class="entry">
+        <div class="entry-title">Outlet Supervisor</div>
+        <div class="entry-date">March 2006 – March 2011</div>
+        <div class="entry-company">Waterfront Airport Hotel and Casino, Cebu, Philippines (5-Star Hotel)</div>
+        <ul>
+            <li>Planned, supervised, and monitored dining area operations to ensure efficient administration of food delivery and outlet maintenance.</li>
+            <li>Managed customer traffic, increased revenues and productivity within assigned area and shift, adhering to hotel guidelines and standards.</li>
+            <li>Ensured operational efficiency and dining customer satisfaction through prompt and strategic service delivery.</li>
+        </ul>
+    </div>
 
-                <div style="margin-bottom:10px;">
-                    <div style="font-weight:700;font-size:11pt;color:#000;">Outlet Supervisor</div>
-                    <div style="font-size:10pt;color:#000;">March 2006 – March 2011</div>
-                    <div style="font-weight:600;font-size:10.5pt;color:#000;margin-bottom:3px;">Waterfront Airport Hotel and Casino, Cebu, Philippines (5-Star Hotel)</div>
-                    <ul style="margin:3px 0 0 16px;padding:0;list-style-type:disc;">
-                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Planned, supervised, and monitored dining area operations to ensure efficient administration of food delivery and outlet maintenance.</li>
-                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Managed customer traffic, increased revenues and productivity within assigned area and shift, adhering to hotel guidelines and standards.</li>
-                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Ensured operational efficiency and dining customer satisfaction through prompt and strategic service delivery.</li>
-                    </ul>
-                </div>
+    <h2 class="section">Awards &amp; Commendations</h2>
+    <ul>
+        <li>Manager of the 3rd Quarter 2025 – IlBelPaese Group (11/2025)</li>
+        <li>Supervisor of the 4th Quarter 2012 – Asiana Hotel (12/2012)</li>
+        <li>Cebu Goes Culinary Table Setting Showcase Competition (Silver Award) – 06/2004</li>
+        <li>F&amp;B Up-seller for Room Service Section – 04/2004</li>
+        <li>Top F&amp;B (Room Service Up-seller) – 12/2003</li>
+        <li>Best Exemplification of Waterfront Way (Be Pro-Active Award) – 06/2003</li>
+        <li>Star of the 1st Quarter 2003 for Front of the House – 04/2003</li>
+        <li>Employee of the Month – 2003</li>
+        <li>Recognition of Deeds (F&amp;B Service) – 2003</li>
+        <li>Cebu Goes Culinary Table Setting Showcase Competition (Silver Award) – 06/2002</li>
+    </ul>
 
-                <div style="font-size:12pt;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-bottom:1.2px solid #000;padding-bottom:3px;margin-top:14px;margin-bottom:8px;color:#000;">Awards & Commendations</div>
-                <ul style="margin:3px 0 0 16px;padding:0;list-style-type:disc;">
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Manager of the 3rd Quarter 2025 – IlBelPaese Group (11/2025)</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Supervisor of the 4th Quarter 2012 – Asiana Hotel (12/2012)</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Cebu Goes Culinary Table Setting Showcase Competition (Silver Award) – 06/2004</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">F&B Up-seller for Room Service Section – 04/2004</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Top F&B (Room Service Up-seller) – 12/2003</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Best Exemplification of Waterfront Way (Be Pro-Active Award) – 06/2003</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Star of the 1st Quarter 2003 for Front of the House – 04/2003</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Employee of the Month – 2003</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Recognition of Deeds (F&B Service) – 2003</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Cebu Goes Culinary Table Setting Showcase Competition (Silver Award) – 06/2002</li>
-                </ul>
+    <h2 class="section">Education</h2>
+    <div class="entry">
+        <div class="entry-title">BS Medical Technology</div>
+        <div class="entry-date">1992 – 1997</div>
+        <div class="entry-company">Southwestern University, Cebu City, Philippines</div>
+    </div>
 
-                <div style="font-size:12pt;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-bottom:1.2px solid #000;padding-bottom:3px;margin-top:14px;margin-bottom:8px;color:#000;">Education</div>
-                <div style="margin-bottom:10px;">
-                    <div style="font-weight:700;font-size:11pt;color:#000;">BS Medical Technology</div>
-                    <div style="font-size:10pt;color:#000;">1992 – 1997</div>
-                    <div style="font-weight:600;font-size:10.5pt;color:#000;">Southwestern University, Cebu City, Philippines</div>
-                </div>
+    <h2 class="section">Languages</h2>
+    <ul>
+        <li>English – American English (Full professional proficiency)</li>
+        <li>Tagalog – Philippine Language (Native / full professional proficiency)</li>
+    </ul>
 
-                <div style="font-size:12pt;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-bottom:1.2px solid #000;padding-bottom:3px;margin-top:14px;margin-bottom:8px;color:#000;">Languages</div>
-                <ul style="margin:3px 0 0 16px;padding:0;list-style-type:disc;">
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">English – American English (Full professional proficiency)</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Tagalog – Philippine Language (Native / full professional proficiency)</li>
-                </ul>
+    <h2 class="section">Character References</h2>
+    <table class="refs">
+        <tr>
+            <td>
+                <div class="ref-name">Bhawna Sinha</div>
+                <div>HR Director</div>
+                <div>Asiana Hotel, Deira Dubai</div>
+                <div>Phone: +971 50 697 0723</div>
+            </td>
+            <td>
+                <div class="ref-name">James Kang</div>
+                <div>Chief Executive</div>
+                <div>Asiana Hotel, Deira Dubai</div>
+                <div>Phone: +971 56 105 1482</div>
+            </td>
+        </tr>
+    </table>
 
-                <div style="font-size:12pt;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-bottom:1.2px solid #000;padding-bottom:3px;margin-top:14px;margin-bottom:8px;color:#000;">Character References</div>
-                <table style="width:100%;border-collapse:collapse;font-size:10.5pt;color:#000;">
-                    <tr>
-                        <td style="vertical-align:top;width:50%;padding-right:12px;">
-                            <div style="font-weight:700;">Bhawna Sinha</div>
-                            <div>HR Director</div>
-                            <div>Asiana Hotel, Deira Dubai</div>
-                            <div>Phone: +971 50 697 0723</div>
-                        </td>
-                        <td style="vertical-align:top;width:50%;">
-                            <div style="font-weight:700;">James Kang</div>
-                            <div>Chief Executive</div>
-                            <div>Asiana Hotel, Deira Dubai</div>
-                            <div>Phone: +971 56 105 1482</div>
-                        </td>
-                    </tr>
-                </table>
+    <h2 class="section">Training &amp; Seminars</h2>
+    <ul>
+        <li>HACCP Training – 01/2018</li>
+        <li>Skills Training Techniques Workshop – 08/2018</li>
+        <li>Fire Awareness Training – 05/2017</li>
+        <li>Crisis Management in Hospitality – International Hotel &amp; Restaurant Association, 12/2017</li>
+        <li>TSI Quality Service PIC level 3 – 2018</li>
+        <li>TSI Quality Service PIC level 3 with Merit – 10/2012</li>
+        <li>Basic First Aid &amp; CPR – 09/2011</li>
+        <li>Effective Business Writing Workshop – 02/2007</li>
+        <li>Job Instruction Technique Workshop – 01/2006</li>
+        <li>Protocol Training – 12/2005</li>
+        <li>Skills Certification Program for Butlers – 05/2005</li>
+        <li>Creative Idea Circle Training – 11/2002</li>
+    </ul>
+</div>
 
-                <div style="font-size:12pt;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-bottom:1.2px solid #000;padding-bottom:3px;margin-top:14px;margin-bottom:8px;color:#000;">Training & Seminars</div>
-                <ul style="margin:3px 0 0 16px;padding:0;list-style-type:disc;">
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">HACCP Training – 01/2018</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Skills Training Techniques Workshop – 08/2018</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Fire Awareness Training – 05/2017</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Crisis Management in Hospitality – International Hotel & Restaurant Association, 12/2017</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">TSI Quality Service PIC level 3 – 2018</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">TSI Quality Service PIC level 3 with Merit – 10/2012</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Basic First Aid & CPR – 09/2011</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Effective Business Writing Workshop – 02/2007</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Job Instruction Technique Workshop – 01/2006</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Protocol Training – 12/2005</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Skills Certification Program for Butlers – 05/2005</li>
-                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Creative Idea Circle Training – 11/2002</li>
-                </ul>
-            `;
+<script>
+    // Auto-generate the PDF as soon as this window loads
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            var element = document.getElementById('cv');
+            var opt = {
+                margin: 0,
+                filename: 'Jennifel_Arreza_CV.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true,
+                    logging: false,
+                    backgroundColor: '#ffffff'
+                },
+                jsPDF: {
+                    unit: 'mm',
+                    format: 'a4',
+                    orientation: 'portrait',
+                    compress: true
+                },
+                pagebreak: { mode: ['css', 'legacy'] }
+            };
+            html2pdf().set(opt).from(element).save().then(function() {
+                // Notify the opener (main site) that it's done
+                if (window.opener) {
+                    window.opener.postMessage({ type: 'cvDownloaded' }, '*');
+                }
+                // Close this helper window after a short delay
+                setTimeout(function() { window.close(); }, 1200);
+            }).catch(function(err) {
+                console.error('PDF error:', err);
+                alert('PDF generation failed: ' + err.message);
+            });
+        }, 400);
+    });
+<\/script>
+</body>
+</html>
+        `;
 
-            return wrapper;
-        }
-
-        // ============ PDF GENERATION ============
+        // ============ DOWNLOAD CV BUTTON ============
         document.getElementById('download-cv').addEventListener('click', function (e) {
             e.preventDefault();
-
-            const btn = this;
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
-            btn.disabled = true;
             showLoading();
 
-            // Build the element in the live DOM
-            const atsElement = buildATSCVElement();
-            document.body.appendChild(atsElement);
+            // Open a new window with the ATS CV and auto-generate PDF inside it
+            const w = window.open('', '_blank', 'width=900,height=700');
 
-            // Wait a tick for layout
+            if (!w) {
+                hideLoading();
+                showNotification('Please allow pop-ups to download the CV.', 'error');
+                return;
+            }
+
+            w.document.open();
+            w.document.write(ATS_CV_HTML);
+            w.document.close();
+
+            // The helper window will handle PDF generation and close itself
+            // We just hide the loading overlay after a reasonable wait
             setTimeout(() => {
-                const opt = {
-                    margin: [0, 0, 0, 0],
-                    filename: 'Jennifel_Arreza_CV.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: {
-                        scale: 2,
-                        useCORS: true,
-                        logging: false,
-                        backgroundColor: '#ffffff',
-                        windowWidth: atsElement.scrollWidth,
-                        windowHeight: atsElement.scrollHeight
-                    },
-                    jsPDF: {
-                        unit: 'mm',
-                        format: 'a4',
-                        orientation: 'portrait',
-                        compress: true
-                    },
-                    pagebreak: { mode: ['css', 'legacy'] }
-                };
+                hideLoading();
+                showNotification('Your ATS CV is being downloaded...', 'success');
+            }, 1500);
+        });
 
-                html2pdf().set(opt).from(atsElement).save()
-                    .then(() => {
-                        showNotification('ATS-friendly CV downloaded successfully!', 'success');
-                    })
-                    .catch((error) => {
-                        console.error('PDF generation failed:', error);
-                        showNotification('Failed to generate PDF. Please try again.', 'error');
-                    })
-                    .finally(() => {
-                        // Clean up
-                        if (atsElement.parentElement) atsElement.parentElement.removeChild(atsElement);
-                        hideLoading();
-                        btn.innerHTML = originalText;
-                        btn.disabled = false;
-                    });
-            }, 150);
+        // Listen for the "done" message from the helper window
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'cvDownloaded') {
+                hideLoading();
+                showNotification('ATS-friendly CV downloaded successfully!', 'success');
+            }
         });
 
         // ============ INIT ============
         document.addEventListener('DOMContentLoaded', function () {
-            window.addEventListener('scroll', highlightMenuOnScroll);
             createScrollToTopButton();
-
             document.querySelectorAll('.nav-links a, a[href^="#"]').forEach(link => {
                 link.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
-
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' });
