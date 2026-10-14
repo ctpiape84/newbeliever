@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Jennifel Arreza - Operation Manager</title>
+    <title>Jennifel Arreza - Operation Manager</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
@@ -95,7 +94,6 @@
             color: var(--secondary-color);
         }
 
-        /* Active Menu Item */
         .nav-links a.active {
             color: var(--secondary-color) !important;
             font-weight: 600;
@@ -114,13 +112,8 @@
         }
 
         @keyframes slideIn {
-            from {
-                width: 0;
-            }
-
-            to {
-                width: 100%;
-            }
+            from { width: 0; }
+            to { width: 100%; }
         }
 
         .hamburger {
@@ -172,7 +165,6 @@
             box-shadow: var(--shadow);
         }
 
-        /* Sections */
         section {
             padding: 80px 0;
         }
@@ -256,7 +248,7 @@
             border-left: 3px solid var(--secondary-color);
         }
 
-        /* Extended Timeline */
+        /* Timeline */
         .timeline {
             position: relative;
             max-width: 1000px;
@@ -281,15 +273,9 @@
             box-sizing: border-box;
         }
 
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
+        .timeline-item:nth-child(odd) { left: 0; }
+        .timeline-item:nth-child(even) { left: 50%; }
 
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        /* Timeline Hover Effects */
         .timeline-content {
             padding: 28px 32px;
             background: white;
@@ -321,14 +307,8 @@
             border-color: var(--secondary-color);
         }
 
-        .timeline-content:hover::before {
-            opacity: 1;
-        }
-
-        .timeline-content:hover h3 {
-            color: var(--primary-color);
-        }
-
+        .timeline-content:hover::before { opacity: 1; }
+        .timeline-content:hover h3 { color: var(--primary-color); }
         .timeline-content:hover .date {
             background: var(--secondary-color);
             color: var(--primary-color);
@@ -374,21 +354,15 @@
             transition: var(--transition);
         }
 
-        .timeline-item:nth-child(odd)::after {
-            right: -10px;
-        }
-
-        .timeline-item:nth-child(even)::after {
-            left: -10px;
-        }
-
+        .timeline-item:nth-child(odd)::after { right: -10px; }
+        .timeline-item:nth-child(even)::after { left: -10px; }
         .timeline-item:hover::after {
             transform: scale(1.3);
             background-color: var(--secondary-color);
             box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.2);
         }
 
-        /* Cards Container - Wider Cards */
+        /* Cards */
         .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -424,38 +398,8 @@
             line-height: 1.6;
         }
 
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        /* Language Proficiency */
-        .language-item {
-            margin-bottom: 1.5rem;
-        }
-
+        /* Language */
+        .language-item { margin-bottom: 1.5rem; }
         .language-name {
             display: flex;
             justify-content: space-between;
@@ -475,11 +419,8 @@
             border-radius: 5px;
         }
 
-        /* Training & Seminars - Simple Elegant List */
-        .training-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        /* Training */
+        .training-container { max-width: 800px; margin: 0 auto; }
 
         .training-list {
             list-style: none;
@@ -497,13 +438,8 @@
             transition: var(--transition);
         }
 
-        .training-item:last-child {
-            border-bottom: none;
-        }
-
-        .training-item:hover {
-            background-color: #f9f9f9;
-        }
+        .training-item:last-child { border-bottom: none; }
+        .training-item:hover { background-color: #f9f9f9; }
 
         .training-date {
             min-width: 100px;
@@ -519,15 +455,13 @@
             color: var(--primary-color);
         }
 
-        /* Contact Section */
+        /* Contact */
         .contact-container {
             display: flex;
             gap: 3rem;
         }
 
-        .contact-info {
-            flex: 1;
-        }
+        .contact-info { flex: 1; }
 
         .contact-item {
             display: flex;
@@ -548,13 +482,8 @@
             font-size: 1.2rem;
         }
 
-        .contact-form {
-            flex: 2;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+        .contact-form { flex: 2; }
+        .form-group { margin-bottom: 1.5rem; }
 
         .form-group label {
             display: block;
@@ -576,7 +505,6 @@
             resize: vertical;
         }
 
-        /* Footer */
         footer {
             background-color: var(--primary-color);
             color: white;
@@ -609,7 +537,6 @@
             transform: translateY(-3px);
         }
 
-        /* Scroll to Top Button */
         #scrollToTop {
             position: fixed;
             bottom: 30px;
@@ -633,10 +560,7 @@
             justify-content: center;
         }
 
-        #scrollToTop.show {
-            opacity: 1;
-            visibility: visible;
-        }
+        #scrollToTop.show { opacity: 1; visibility: visible; }
 
         #scrollToTop:hover {
             background-color: var(--accent-color);
@@ -644,7 +568,6 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
-        /* PDF Notification */
         .pdf-notification {
             position: fixed;
             top: 100px;
@@ -662,9 +585,7 @@
             animation: slideInRight 0.3s ease;
         }
 
-        .pdf-notification.error {
-            border-left-color: #f44336;
-        }
+        .pdf-notification.error { border-left-color: #f44336; }
 
         .pdf-notification button {
             background: none;
@@ -675,32 +596,131 @@
         }
 
         @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
-            }
+        /* ============================================
+           ATS CV STYLES (used only inside hidden container)
+           ============================================ */
+        #ats-cv-template {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            width: 210mm;
+            min-height: 297mm;
+            padding: 18mm 16mm;
+            background: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.45;
+            color: #000000;
+        }
 
-            .contact-container {
-                flex-direction: column;
-            }
+        #ats-cv-template .ats-name {
+            font-size: 20pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            color: #000000;
+        }
+
+        #ats-cv-template .ats-contact {
+            font-size: 10pt;
+            color: #000000;
+            border-bottom: 1.5px solid #000000;
+            padding-bottom: 8px;
+            margin-bottom: 14px;
+        }
+
+        #ats-cv-template .ats-contact span {
+            display: inline-block;
+            margin-right: 14px;
+        }
+
+        #ats-cv-template .ats-section-title {
+            font-size: 12pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            border-bottom: 1.2px solid #000000;
+            padding-bottom: 3px;
+            margin-top: 14px;
+            margin-bottom: 8px;
+            color: #000000;
+        }
+
+        #ats-cv-template .ats-entry { margin-bottom: 10px; }
+
+        #ats-cv-template .ats-entry-title {
+            font-weight: 700;
+            font-size: 11pt;
+            color: #000000;
+        }
+
+        #ats-cv-template .ats-entry-date {
+            font-weight: 400;
+            font-size: 10pt;
+            color: #000000;
+        }
+
+        #ats-cv-template .ats-entry-company {
+            font-weight: 600;
+            font-size: 10.5pt;
+            color: #000000;
+            margin-bottom: 3px;
+        }
+
+        #ats-cv-template p,
+        #ats-cv-template li {
+            font-size: 10.5pt;
+            color: #000000;
+            line-height: 1.45;
+        }
+
+        #ats-cv-template ul {
+            margin: 3px 0 0 16px;
+            padding: 0;
+            list-style-type: disc;
+        }
+
+        #ats-cv-template ul li {
+            margin-bottom: 3px;
+            padding-left: 2px;
+        }
+
+        #ats-cv-template .ats-skills {
+            font-size: 10.5pt;
+            color: #000000;
+        }
+
+        #ats-cv-template .ats-two-col {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+
+        #ats-cv-template .ats-two-col > div {
+            display: table-cell;
+            width: 50%;
+            vertical-align: top;
+            padding-right: 12px;
+        }
+
+        #ats-cv-template .ats-ref-name {
+            font-weight: 700;
+            font-size: 10.5pt;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content, .contact-container { flex-direction: column; }
         }
 
         @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
+            .hamburger { display: block; }
 
             .nav-links {
                 position: fixed;
@@ -714,52 +734,27 @@
                 box-shadow: var(--shadow);
             }
 
-            .nav-links.active {
-                right: 0;
-            }
+            .nav-links.active { right: 0; }
+            .nav-links li { margin: 1rem 0; }
+            .hero-content h1 { font-size: 2.5rem; }
 
-            .nav-links li {
-                margin: 1rem 0;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .timeline::after {
-                left: 31px;
-            }
-
+            .timeline::after { left: 31px; }
             .timeline-item {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 25px;
             }
-
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-
-            .timeline-item::after {
-                left: 21px;
-            }
-
+            .timeline-item:nth-child(even) { left: 0; }
+            .timeline-item::after { left: 21px; }
             .timeline-item:nth-child(odd)::after,
-            .timeline-item:nth-child(even)::after {
-                left: 21px;
-            }
-
-            .timeline-content {
-                min-height: auto;
-                padding: 20px;
-            }
+            .timeline-item:nth-child(even)::after { left: 21px; }
+            .timeline-content { min-height: auto; padding: 20px; }
 
             .training-item {
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 1.2rem 1.5rem;
             }
-
             .training-date {
                 margin-right: 0;
                 margin-bottom: 0.5rem;
@@ -773,28 +768,12 @@
                 height: 45px;
                 font-size: 1.3rem;
             }
-
-            .nav-links a.active::after {
-                bottom: -2px;
-            }
         }
 
         @media (max-width: 576px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .cards-container {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero-content h1 { font-size: 2rem; }
+            .section-title h2 { font-size: 2rem; }
+            .cards-container, .services-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -811,7 +790,6 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <!--<li><a href="#services">Services</a></li>-->
                 <li><a href="#awards">Awards</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#languages">Languages</a></li>
@@ -836,9 +814,7 @@
     <!-- About Section -->
     <section id="about">
         <div class="container">
-            <div class="section-title">
-                <h2>About Me</h2>
-            </div>
+            <div class="section-title"><h2>About Me</h2></div>
             <div class="about-content">
                 <div class="about-img">
                     <img src="fel.jpeg" alt="Jennifel Arreza">
@@ -874,9 +850,7 @@
     <!-- Work Experience -->
     <section id="experience" style="background-color: #f5f7fa;">
         <div class="container">
-            <div class="section-title">
-                <h2>Work Experience</h2>
-            </div>
+            <div class="section-title"><h2>Work Experience</h2></div>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
@@ -905,12 +879,10 @@
                         <h3>Outlet Assistant Manager</h3>
                         <p class="date">March 2011 - March 2017</p>
                         <h4>UAsiana Hotel, Dubai (5 Star Hotel)</h4>
-                        <p>Responsible for managing the daily operation of our restaurant, including
-                            the selection, development and performance management of employees. Will oversee the
-                            inventory
-                            and ordering of food and supplies, optimize profits and ensure that Guests are satisfied
-                            with their
-                            dining experience.</p>
+                        <p>Responsible for managing the daily operation of our restaurant, including the selection,
+                            development and performance management of employees. Will oversee the inventory and
+                            ordering of food and supplies, optimize profits and ensure that Guests are satisfied with
+                            their dining experience.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -918,288 +890,134 @@
                         <h3>Outlet Supervisor</h3>
                         <p class="date">March 2006 - March 2011</p>
                         <h4>Waterfront Airport Hotel and Casino, Philippines, Cebu (5 Star Hotel)</h4>
-                        <p>Responsible in planning, supervising and monitoring the operations in the
-                            dining area by ensuring efficient and systematic administration of work processes related to
-                            fooddelivery and outlet maintenance, managing customer traffic and increasing revenues and
+                        <p>Responsible in planning, supervising and monitoring the operations in the dining area by
+                            ensuring efficient and systematic administration of work processes related to food
+                            delivery and outlet maintenance, managing customer traffic and increasing revenues and
                             productivity within assigned area and work shift within the established guidelines,
-                            standards and
-                            procedures of the hotel in order to ensure operational efficiency and achieve the
-                            satisfaction of the
-                            dining customers through efficient, prompt &strategic delivery of service in the dining
-                            area.</p>
+                            standards and procedures of the hotel in order to ensure operational efficiency and achieve
+                            the satisfaction of the dining customers through efficient, prompt & strategic delivery of
+                            service in the dining area.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Awards & Commendations -->
+    <!-- Awards -->
     <section id="awards" style="background-color: #f5f7fa;">
         <div class="container">
-            <div class="section-title">
-                <h2>Awards & Commendations</h2>
-            </div>
+            <div class="section-title"><h2>Awards & Commendations</h2></div>
             <div class="training-container">
                 <ul class="training-list">
-                    <li class="training-item">
-                        <span class="training-date">11/2025</span>
-                        <span class="training-name">Manager of the 3rd Quarter 2025</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">12/2012</span>
-                        <span class="training-name">Supervisor of the 4th Quarter 2012</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">06/2004</span>
-                        <span class="training-name">Cebu Goes Culinary Table Setting Showcase Competition (Silver Award)
-                        </span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">04/2004</span>
-                        <span class="training-name">F&B Up-seller for Room Service Section</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">12/2003</span>
-                        <span class="training-name">Top F&B (Room Service Up-seller)</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">06/2003</span>
-                        <span class="training-name">Best Exemplification of Waterfront Way (Be Pro-Active Award)</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">04/2003</span>
-                        <span class="training-name">Star of the 1st Quarter 2003 for Front of the House </span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">09/2011</span>
-                        <span class="training-name">Basic First Aid & CPR</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">2003</span>
-                        <span class="training-name">Employee of the Month</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">2003</span>
-                        <span class="training-name">Recognition of Deeds (F&B Service)</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">06/2002</span>
-                        <span class="training-name">Cebu Goes Culinary Table Setting Showcase Competition (Silver
-                            Award)</span>
-                    </li>
+                    <li class="training-item"><span class="training-date">11/2025</span><span class="training-name">Manager of the 3rd Quarter 2025</span></li>
+                    <li class="training-item"><span class="training-date">12/2012</span><span class="training-name">Supervisor of the 4th Quarter 2012</span></li>
+                    <li class="training-item"><span class="training-date">06/2004</span><span class="training-name">Cebu Goes Culinary Table Setting Showcase Competition (Silver Award)</span></li>
+                    <li class="training-item"><span class="training-date">04/2004</span><span class="training-name">F&B Up-seller for Room Service Section</span></li>
+                    <li class="training-item"><span class="training-date">12/2003</span><span class="training-name">Top F&B (Room Service Up-seller)</span></li>
+                    <li class="training-item"><span class="training-date">06/2003</span><span class="training-name">Best Exemplification of Waterfront Way (Be Pro-Active Award)</span></li>
+                    <li class="training-item"><span class="training-date">04/2003</span><span class="training-name">Star of the 1st Quarter 2003 for Front of the House</span></li>
+                    <li class="training-item"><span class="training-date">09/2011</span><span class="training-name">Basic First Aid & CPR</span></li>
+                    <li class="training-item"><span class="training-date">2003</span><span class="training-name">Employee of the Month</span></li>
+                    <li class="training-item"><span class="training-date">2003</span><span class="training-name">Recognition of Deeds (F&B Service)</span></li>
+                    <li class="training-item"><span class="training-date">06/2002</span><span class="training-name">Cebu Goes Culinary Table Setting Showcase Competition (Silver Award)</span></li>
                 </ul>
             </div>
         </div>
     </section>
-    <!--<section id="awards" style="background-color: #f5f7fa;">
-        <div class="container">
-            <div class="section-title">
-                <h2>Awards & Commendations</h2>
-            </div>
-            <div class="cards-container">
-                <div class="card">
-                    <h3>Manager of the Quater (3rd Quater 2025)</h3>
-                    <p class="date">2025</p>
-                    <p>American Hotel & Lodging Association</p>
-                    <p>Recognized for outstanding contributions to guest satisfaction and service innovation.</p>
-                </div>
-                <div class="card">
-                    <h3>Hospitality Excellence Award</h3>
-                    <p class="date">2021</p>
-                    <p>American Hotel & Lodging Association</p>
-                    <p>Recognized for outstanding contributions to guest satisfaction and service innovation.</p>
-                </div>
-                <div class="card">
-                    <h3>Manager of the Year</h3>
-                    <p class="date">2020</p>
-                    <p>The Grand Luxe Hotel Group</p>
-                    <p>Awarded for exceptional leadership and achieving the highest guest satisfaction scores in the
-                        company.</p>
-                </div>
-                <div class="card">
-                    <h3>Service Excellence Commendation</h3>
-                    <p class="date">2018</p>
-                    <p>Luxury Travel Magazine</p>
-                    <p>Featured in industry publication for implementing innovative guest service initiatives.</p>
-                </div>
-            </div>
-        </div>
-    </section>-->
 
     <!-- Education -->
     <section id="education">
         <div class="container">
-            <div class="section-title">
-                <h2>Education</h2>
-            </div>
+            <div class="section-title"><h2>Education</h2></div>
             <div class="cards-container">
                 <div class="card">
                     <h3>BS Medical Technology</h3>
                     <p class="date">1992 - 1997</p>
-                    <p>Southwestern University (Cebu City, Philippines) </p>
+                    <p>Southwestern University (Cebu City, Philippines)</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Language Proficiency -->
+    <!-- Languages -->
     <section id="languages" style="background-color: #f5f7fa;">
         <div class="container">
-            <div class="section-title">
-                <h2>Language Proficiency</h2>
-            </div>
+            <div class="section-title"><h2>Language Proficiency</h2></div>
             <div class="language-list">
                 <div class="language-item">
-                    <div class="language-name">
-                        <span>English</span>
-                        <span>American English</span>
-                    </div>
-                    <div class="language-bar">
-                        <div class="language-progress" style="width: 100%"></div>
-                    </div>
+                    <div class="language-name"><span>English</span><span>American English</span></div>
+                    <div class="language-bar"><div class="language-progress" style="width: 100%"></div></div>
                 </div>
                 <div class="language-item">
-                    <div class="language-name">
-                        <span>Tagalog</span>
-                        <span>Philippine Language</span>
-                    </div>
-                    <div class="language-bar">
-                        <div class="language-progress" style="width: 100%"></div>
-                    </div>
+                    <div class="language-name"><span>Tagalog</span><span>Philippine Language</span></div>
+                    <div class="language-bar"><div class="language-progress" style="width: 100%"></div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Character References -->
+    <!-- References -->
     <section id="references">
         <div class="container">
-            <div class="section-title">
-                <h2>Character References</h2>
-            </div>
+            <div class="section-title"><h2>Character References</h2></div>
             <div class="cards-container">
                 <div class="card">
                     <h3>Bhawna Sinha</h3>
                     <p>HR Director</p>
-                    <p>Asiana Hotel, Deira Dubai </p>
+                    <p>Asiana Hotel, Deira Dubai</p>
                     <p>Phone: +971 50 697 0723</p>
                 </div>
                 <div class="card">
                     <h3>James Kang</h3>
                     <p>Chief Executive</p>
-                    <p>Asiana Hotel, Deira Dubai </p>
+                    <p>Asiana Hotel, Deira Dubai</p>
                     <p>Phone: +971 56 105 1482</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Training & Seminars - Simple Elegant List -->
+    <!-- Training -->
     <section id="training" style="background-color: #f5f7fa;">
         <div class="container">
-            <div class="section-title">
-                <h2>Training & Seminars</h2>
-            </div>
+            <div class="section-title"><h2>Training & Seminars</h2></div>
             <div class="training-container">
                 <ul class="training-list">
-                    <li class="training-item">
-                        <span class="training-date">01 2018</span>
-                        <span class="training-name">HACCP Training</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">08 2018</span>
-                        <span class="training-name">Skills Training Techniques Workshop</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">05 2017</span>
-                        <span class="training-name">Fire Awareness Training</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">12 2017</span>
-                        <span class="training-name">Crisis Management in Hospitality - International Hotel & Restaurant
-                            Association</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">2018</span>
-                        <span class="training-name">TSI Quality Service PIC level 3</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">10 2012</span>
-                        <span class="training-name">TSI Quality Service PIC level 3 with Merit</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">09 2011</span>
-                        <span class="training-name">Basic First Aid & CPR</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">02 2007</span>
-                        <span class="training-name">Effective Business Writing Workshop</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">01 2006</span>
-                        <span class="training-name">Job Instruction Technique Workshop</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">12 2005</span>
-                        <span class="training-name">Protocol Training</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">05 2005</span>
-                        <span class="training-name">Skills Certification Program for Butlers</span>
-                    </li>
-                    <li class="training-item">
-                        <span class="training-date">11 2002</span>
-                        <span class="training-name">Creative Idea Circle Training</span>
-                    </li>
+                    <li class="training-item"><span class="training-date">01 2018</span><span class="training-name">HACCP Training</span></li>
+                    <li class="training-item"><span class="training-date">08 2018</span><span class="training-name">Skills Training Techniques Workshop</span></li>
+                    <li class="training-item"><span class="training-date">05 2017</span><span class="training-name">Fire Awareness Training</span></li>
+                    <li class="training-item"><span class="training-date">12 2017</span><span class="training-name">Crisis Management in Hospitality - International Hotel & Restaurant Association</span></li>
+                    <li class="training-item"><span class="training-date">2018</span><span class="training-name">TSI Quality Service PIC level 3</span></li>
+                    <li class="training-item"><span class="training-date">10 2012</span><span class="training-name">TSI Quality Service PIC level 3 with Merit</span></li>
+                    <li class="training-item"><span class="training-date">09 2011</span><span class="training-name">Basic First Aid & CPR</span></li>
+                    <li class="training-item"><span class="training-date">02 2007</span><span class="training-name">Effective Business Writing Workshop</span></li>
+                    <li class="training-item"><span class="training-date">01 2006</span><span class="training-name">Job Instruction Technique Workshop</span></li>
+                    <li class="training-item"><span class="training-date">12 2005</span><span class="training-name">Protocol Training</span></li>
+                    <li class="training-item"><span class="training-date">05 2005</span><span class="training-name">Skills Certification Program for Butlers</span></li>
+                    <li class="training-item"><span class="training-date">11 2002</span><span class="training-name">Creative Idea Circle Training</span></li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Contact Information -->
+    <!-- Contact -->
     <section id="contact">
         <div class="container">
-            <div class="section-title">
-                <h2>Contact Information</h2>
-            </div>
+            <div class="section-title"><h2>Contact Information</h2></div>
             <div class="contact-container">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h3>Location</h3>
-                            <p>Discovery Bay, Hong Kong</p>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div><h3>Location</h3><p>Discovery Bay, Hong Kong</p></div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h3>Email</h3>
-                            <p>gjlance@yahoo.com</p>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div><h3>Email</h3><p>gjlance@yahoo.com</p></div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h3>Phone</h3>
-                            <p>+852 6438 5951</p>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div><h3>Phone</h3><p>+852 6438 5951</p></div>
                     </div>
-                    <!--<div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div>
-                            <h3>LinkedIn</h3>
-                            <p>linkedin.com/in/sophiamartinez</p>
-                        </div>
-                    </div>-->
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
@@ -1238,8 +1056,152 @@
             <p>&copy; 2025 Jennifel Arreza. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- =====================================================================
+         HIDDEN ATS CV TEMPLATE
+         This is the layout that will be rendered into the PDF.
+         It's plain text, single-column, no icons, no colors, no images.
+         ATS systems parse this perfectly.
+    ====================================================================== -->
+    <div id="ats-cv-template">
+        <div class="ats-name">Jennifel Arreza</div>
+        <div class="ats-contact">
+            <span>Discovery Bay, Hong Kong</span>
+            <span>+852 6438 5951</span>
+            <span>gjlance@yahoo.com</span>
+        </div>
+
+        <!-- PROFESSIONAL SUMMARY -->
+        <div class="ats-section-title">Professional Summary</div>
+        <p>Hospitality Management Professional with 10+ years of experience in luxury hotel operations, guest
+            services, and team leadership. Proven track record in managing outlets, optimizing revenue, and delivering
+            exceptional guest experiences. Adept at staff training, quality assurance, and operational efficiency.</p>
+
+        <!-- CORE COMPETENCIES -->
+        <div class="ats-section-title">Core Competencies</div>
+        <p class="ats-skills">Hotel Operations; Guest Relations; Team Leadership; Revenue Management; Event Planning;
+            Quality Assurance; Staff Training; Luxury Service Standards; Inventory Control; Budgeting; HACCP; Crisis
+            Management</p>
+
+        <!-- WORK EXPERIENCE -->
+        <div class="ats-section-title">Work Experience</div>
+
+        <div class="ats-entry">
+            <div class="ats-entry-title">Restaurant Manager</div>
+            <div class="ats-entry-date">December 2023 – November 2026</div>
+            <div class="ats-entry-company">IlBelPaese Group (Italian Restaurants), Hong Kong</div>
+            <ul>
+                <li>Oversee day-to-day operations of all outlets, ensuring efficiency and effectiveness across
+                    production and service delivery.</li>
+                <li>Coordinate different departments, set and review budgets, and implement operational policies.</li>
+            </ul>
+        </div>
+
+        <div class="ats-entry">
+            <div class="ats-entry-title">Outlet Manager</div>
+            <div class="ats-entry-date">March 2017 – December 2023</div>
+            <div class="ats-entry-company">Asiana Hotel, Dubai (5-Star Hotel), Dubai, UAE</div>
+            <ul>
+                <li>Managed daily restaurant operations including menu selection, development, and performance
+                    management of employees.</li>
+                <li>Maintained high production, productivity, quality, and customer-service standards.</li>
+                <li>Optimized profits and ensured guest satisfaction with dining experience.</li>
+            </ul>
+        </div>
+
+        <div class="ats-entry">
+            <div class="ats-entry-title">Outlet Assistant Manager</div>
+            <div class="ats-entry-date">March 2011 – March 2017</div>
+            <div class="ats-entry-company">Asiana Hotel, Dubai (5-Star Hotel), Dubai, UAE</div>
+            <ul>
+                <li>Assisted in managing daily restaurant operations, including selection, development, and
+                    performance management of employees.</li>
+                <li>Oversaw inventory and ordering of food and supplies, optimized profits, and ensured guest
+                    satisfaction.</li>
+            </ul>
+        </div>
+
+        <div class="ats-entry">
+            <div class="ats-entry-title">Outlet Supervisor</div>
+            <div class="ats-entry-date">March 2006 – March 2011</div>
+            <div class="ats-entry-company">Waterfront Airport Hotel and Casino, Cebu, Philippines (5-Star Hotel)</div>
+            <ul>
+                <li>Planned, supervised, and monitored dining area operations to ensure efficient administration of
+                    food delivery and outlet maintenance.</li>
+                <li>Managed customer traffic, increased revenues and productivity within assigned area and shift,
+                    adhering to hotel guidelines and standards.</li>
+                <li>Ensured operational efficiency and dining customer satisfaction through prompt and strategic
+                    service delivery.</li>
+            </ul>
+        </div>
+
+        <!-- AWARDS -->
+        <div class="ats-section-title">Awards & Commendations</div>
+        <ul>
+            <li>Manager of the 3rd Quarter 2025 – IlBelPaese Group (11/2025)</li>
+            <li>Supervisor of the 4th Quarter 2012 – Asiana Hotel (12/2012)</li>
+            <li>Cebu Goes Culinary Table Setting Showcase Competition (Silver Award) – 06/2004</li>
+            <li>F&B Up-seller for Room Service Section – 04/2004</li>
+            <li>Top F&B (Room Service Up-seller) – 12/2003</li>
+            <li>Best Exemplification of Waterfront Way (Be Pro-Active Award) – 06/2003</li>
+            <li>Star of the 1st Quarter 2003 for Front of the House – 04/2003</li>
+            <li>Employee of the Month – 2003</li>
+            <li>Recognition of Deeds (F&B Service) – 2003</li>
+            <li>Cebu Goes Culinary Table Setting Showcase Competition (Silver Award) – 06/2002</li>
+        </ul>
+
+        <!-- EDUCATION -->
+        <div class="ats-section-title">Education</div>
+        <div class="ats-entry">
+            <div class="ats-entry-title">BS Medical Technology</div>
+            <div class="ats-entry-date">1992 – 1997</div>
+            <div class="ats-entry-company">Southwestern University, Cebu City, Philippines</div>
+        </div>
+
+        <!-- LANGUAGES -->
+        <div class="ats-section-title">Languages</div>
+        <ul>
+            <li>English – American English (Full professional proficiency)</li>
+            <li>Tagalog – Philippine Language (Native / full professional proficiency)</li>
+        </ul>
+
+        <!-- REFERENCES -->
+        <div class="ats-section-title">Character References</div>
+        <div class="ats-two-col">
+            <div>
+                <div class="ats-ref-name">Bhawna Sinha</div>
+                <div>HR Director</div>
+                <div>Asiana Hotel, Deira Dubai</div>
+                <div>Phone: +971 50 697 0723</div>
+            </div>
+            <div>
+                <div class="ats-ref-name">James Kang</div>
+                <div>Chief Executive</div>
+                <div>Asiana Hotel, Deira Dubai</div>
+                <div>Phone: +971 56 105 1482</div>
+            </div>
+        </div>
+
+        <!-- TRAINING -->
+        <div class="ats-section-title">Training & Seminars</div>
+        <ul>
+            <li>HACCP Training – 01/2018</li>
+            <li>Skills Training Techniques Workshop – 08/2018</li>
+            <li>Fire Awareness Training – 05/2017</li>
+            <li>Crisis Management in Hospitality – International Hotel & Restaurant Association, 12/2017</li>
+            <li>TSI Quality Service PIC level 3 – 2018</li>
+            <li>TSI Quality Service PIC level 3 with Merit – 10/2012</li>
+            <li>Basic First Aid & CPR – 09/2011</li>
+            <li>Effective Business Writing Workshop – 02/2007</li>
+            <li>Job Instruction Technique Workshop – 01/2006</li>
+            <li>Protocol Training – 12/2005</li>
+            <li>Skills Certification Program for Butlers – 05/2005</li>
+            <li>Creative Idea Circle Training – 11/2002</li>
+        </ul>
+    </div>
+
     <script>
-        // Mobile Navigation Toggle
+        // ============ MOBILE NAV ============
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('nav-links');
 
@@ -1247,25 +1209,23 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
         });
 
-        // Contact Form Submission
+        // ============ CONTACT FORM ============
         document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Thank you for your message! I will get back to you soon.');
             this.reset();
         });
 
-        // Menu Highlighting on Scroll
+        // ============ MENU HIGHLIGHT ============
         function highlightMenuOnScroll() {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-links a');
-
             let currentSection = '';
 
             sections.forEach(section => {
@@ -1286,7 +1246,7 @@
             });
         }
 
-        // Scroll to Top Functionality
+        // ============ SCROLL TO TOP ============
         function createScrollToTopButton() {
             const scrollBtn = document.createElement('button');
             scrollBtn.innerHTML = '↑';
@@ -1294,15 +1254,10 @@
             scrollBtn.setAttribute('title', 'Scroll to top');
             document.body.appendChild(scrollBtn);
 
-            // Scroll to top when clicked
             scrollBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // Show/hide button based on scroll position
             window.addEventListener('scroll', () => {
                 if (window.pageYOffset > 300) {
                     scrollBtn.classList.add('show');
@@ -1312,95 +1267,16 @@
             });
         }
 
-        // PDF Export Functionality
-        document.getElementById('download-cv').addEventListener('click', function (e) {
-            e.preventDefault();
-
-            // Show loading state
-            const originalText = this.innerHTML;
-            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
-            this.disabled = true;
-
-            // Generate PDF
-            generatePDF().finally(() => {
-                // Restore button state
-                this.innerHTML = originalText;
-                this.disabled = false;
-            });
-        });
-
-        async function generatePDF() {
-            // Create a clone of the main content for PDF
-            const element = document.createElement('div');
-            element.className = 'pdf-export';
-            element.style.padding = '20px';
-            element.style.fontFamily = 'Arial, sans-serif';
-            element.style.background = 'white';
-            element.style.color = 'black';
-
-            // Get all sections content
-            const sections = [
-                'hero', 'about', 'experience', 'services',
-                'awards', 'education', 'languages', 'references', 'training'
-            ];
-
-            // Build PDF content
-            sections.forEach(sectionId => {
-                const section = document.getElementById(sectionId);
-                if (section) {
-                    const sectionClone = section.cloneNode(true);
-
-                    // Remove interactive elements for PDF
-                    sectionClone.querySelectorAll('.btn, .hamburger, .nav-links, .social-links, form').forEach(el => el.remove());
-
-                    // Add section to PDF container
-                    element.appendChild(sectionClone);
-                }
-            });
-
-            // PDF configuration
-            const opt = {
-                margin: [10, 10, 10, 10],
-                filename: 'Jennifel_Arreza_Portfolio.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: {
-                    scale: 2,
-                    useCORS: true,
-                    logging: false,
-                    backgroundColor: '#ffffff'
-                },
-                jsPDF: {
-                    unit: 'mm',
-                    format: 'a4',
-                    orientation: 'portrait'
-                },
-                pagebreak: { mode: ['css', 'legacy'] }
-            };
-
-            try {
-                // Generate and download PDF
-                await html2pdf().set(opt).from(element).save();
-
-                // Show success message
-                showNotification('PDF downloaded successfully!', 'success');
-            } catch (error) {
-                console.error('PDF generation failed:', error);
-                showNotification('Failed to generate PDF. Please try again.', 'error');
-            }
-        }
-
+        // ============ NOTIFICATION ============
         function showNotification(message, type) {
-            // Create notification element
             const notification = document.createElement('div');
             notification.className = `pdf-notification ${type}`;
             notification.innerHTML = `
                 <span>${message}</span>
                 <button onclick="this.parentElement.remove()">&times;</button>
             `;
-
             document.body.appendChild(notification);
 
-            // Auto remove after 5 seconds
             setTimeout(() => {
                 if (notification.parentElement) {
                     notification.remove();
@@ -1408,15 +1284,65 @@
             }, 5000);
         }
 
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', function () {
-            // Add scroll event listener for menu highlighting
-            window.addEventListener('scroll', highlightMenuOnScroll);
+        // ============ PDF GENERATION (ATS READY) ============
+        document.getElementById('download-cv').addEventListener('click', function (e) {
+            e.preventDefault();
 
-            // Create scroll to top button
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+            this.disabled = true;
+
+            generateATSPDF().finally(() => {
+                this.innerHTML = originalText;
+                this.disabled = false;
+            });
+        });
+
+        async function generateATSPDF() {
+            // Get the hidden ATS template
+            const element = document.getElementById('ats-cv-template');
+
+            // Make sure it's rendered (in case browser optimized it away)
+            element.style.position = 'absolute';
+            element.style.left = '-9999px';
+            element.style.top = '0';
+            element.style.width = '210mm';
+            element.style.background = '#ffffff';
+
+            const opt = {
+                margin: [12, 12, 12, 12], // mm
+                filename: 'Jennifel_Arreza_CV.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true,
+                    logging: false,
+                    backgroundColor: '#ffffff',
+                    letterRendering: true
+                },
+                jsPDF: {
+                    unit: 'mm',
+                    format: 'a4',
+                    orientation: 'portrait',
+                    compress: true
+                },
+                pagebreak: { mode: ['css', 'legacy'] }
+            };
+
+            try {
+                await html2pdf().set(opt).from(element).save();
+                showNotification('ATS-friendly CV downloaded successfully!', 'success');
+            } catch (error) {
+                console.error('PDF generation failed:', error);
+                showNotification('Failed to generate PDF. Please try again.', 'error');
+            }
+        }
+
+        // ============ INIT ============
+        document.addEventListener('DOMContentLoaded', function () {
+            window.addEventListener('scroll', highlightMenuOnScroll);
             createScrollToTopButton();
 
-            // Add click event for smooth scrolling to sections
             document.querySelectorAll('.nav-links a, a[href^="#"]').forEach(link => {
                 link.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -1429,8 +1355,6 @@
                             top: targetElement.offsetTop - 80,
                             behavior: 'smooth'
                         });
-
-                        // Close mobile menu if open
                         document.getElementById('nav-links').classList.remove('active');
                     }
                 });
@@ -1439,6 +1363,4 @@
     </script>
 </body>
 
-
 </html>
-
