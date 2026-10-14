@@ -71,7 +71,7 @@
             color: var(--navy);
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .logo-mark {
@@ -244,7 +244,6 @@
             font-size: .78rem;
         }
 
-        /* Right stat panel */
         .hero-stats {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -279,9 +278,7 @@
         }
 
         /* ===================== SECTIONS ===================== */
-        section.block {
-            padding: 56px 0;
-        }
+        section.block { padding: 56px 0; }
 
         section.alt {
             background: var(--bg-white);
@@ -338,12 +335,15 @@
             box-shadow: var(--shadow-md);
             border: 1px solid var(--line);
             background: var(--bg-soft);
+            aspect-ratio: 3 / 4;
+            width: 100%;
         }
 
         .about-photo img {
             width: 100%;
-            height: 260px;
+            height: 100%;
             object-fit: cover;
+            object-position: center top;
         }
 
         .about-text h3 {
@@ -480,7 +480,7 @@
             background: #fff;
             border: 1px solid var(--line);
             border-radius: var(--radius);
-            padding: 22px 22px;
+            padding: 22px;
             transition: var(--transition);
             box-shadow: var(--shadow-sm);
         }
@@ -512,9 +512,7 @@
             line-height: 1.6;
         }
 
-        .card p + p { margin-top: 4px; }
-
-        /* ===================== LIST ITEMS (awards/training) ===================== */
+        /* ===================== LIST ITEMS ===================== */
         .compact-list {
             list-style: none;
             border: 1px solid var(--line);
@@ -778,7 +776,7 @@
 
         footer p { color: rgba(255, 255, 255, .5); }
 
-        /* ===================== FLOATING ELEMENTS ===================== */
+        /* ===================== FLOATING ===================== */
         #scrollToTop {
             position: fixed;
             bottom: 24px;
@@ -867,8 +865,21 @@
         @media (max-width: 900px) {
             .hero-inner { grid-template-columns: 1fr; gap: 34px; }
             .hero h1 { font-size: 2.1rem; }
-            .about-grid { grid-template-columns: 1fr; gap: 22px; }
-            .about-photo img { height: 220px; }
+
+            /* ---- FIXED: about photo centers and sizes properly on mobile ---- */
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                justify-items: center;
+            }
+            .about-photo {
+                width: 200px;
+                max-width: 60vw;
+                aspect-ratio: 3 / 4;
+                margin: 0 auto;
+            }
+            .about-text { width: 100%; }
+
             .contact-grid { grid-template-columns: 1fr; gap: 26px; }
         }
 
@@ -912,7 +923,6 @@
             .hero h1 { font-size: 1.85rem; }
             .hero-role { font-size: .92rem; }
             .hero-desc { font-size: .88rem; }
-
             .hero-stats { grid-template-columns: 1fr 1fr; }
 
             .compact-list li {
@@ -922,10 +932,15 @@
             }
 
             .tl-head { gap: 6px; }
-
             .card, .ref-card, .form-card, .lang-item { padding: 18px; }
-
             #scrollToTop { bottom: 16px; right: 16px; }
+        }
+
+        @media (max-width: 480px) {
+            .about-photo {
+                width: 170px;
+                max-width: 70vw;
+            }
         }
 
         @media (max-width: 420px) {
@@ -971,12 +986,8 @@
                     groups — specialising in revenue growth, team performance, and world-class guest experience.
                 </p>
                 <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Get In Touch
-                    </a>
-                    <a href="#" class="btn btn-ghost" id="download-cv">
-                        <i class="fas fa-file-arrow-down"></i> Download CV
-                    </a>
+                    <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+                    <a href="#" class="btn btn-ghost" id="download-cv"><i class="fas fa-file-arrow-down"></i> Download CV</a>
                 </div>
                 <div class="hero-contact">
                     <span><i class="fas fa-map-marker-alt"></i> Discovery Bay, Hong Kong</span>
@@ -1018,7 +1029,6 @@
                         I believe attention to detail and genuine care are what turn good service into memorable
                         experiences.
                     </p>
-
                     <div class="expertise">
                         <div class="expertise-title">Areas of Expertise</div>
                         <div class="tags">
@@ -1045,58 +1055,38 @@
                 <span class="section-num">02 / Career History</span>
             </div>
             <div class="timeline">
-
                 <div class="tl-item">
                     <div class="tl-head">
                         <div class="tl-title">Restaurant Manager</div>
                         <div class="tl-date">Dec 2023 – Nov 2026</div>
                     </div>
                     <div class="tl-company">IlBelPaese Group · Italian Restaurants</div>
-                    <p class="tl-desc">
-                        Oversee day-to-day operations across all outlets — ensuring efficient production,
-                        coordinated departments, budget planning, and implementation of operational policies.
-                    </p>
+                    <p class="tl-desc">Oversee day-to-day operations across all outlets — ensuring efficient production, coordinated departments, budget planning, and implementation of operational policies.</p>
                 </div>
-
                 <div class="tl-item">
                     <div class="tl-head">
                         <div class="tl-title">Outlet Manager</div>
                         <div class="tl-date">Mar 2017 – Dec 2023</div>
                     </div>
                     <div class="tl-company">Asiana Hotel, Dubai · 5-Star Hotel</div>
-                    <p class="tl-desc">
-                        Managed daily restaurant operations including menu selection, product development, and
-                        performance management. Maintained high standards of quality and service while optimising
-                        profitability and guest satisfaction.
-                    </p>
+                    <p class="tl-desc">Managed daily restaurant operations including menu selection, product development, and performance management. Maintained high standards of quality and service while optimising profitability and guest satisfaction.</p>
                 </div>
-
                 <div class="tl-item">
                     <div class="tl-head">
                         <div class="tl-title">Outlet Assistant Manager</div>
                         <div class="tl-date">Mar 2011 – Mar 2017</div>
                     </div>
                     <div class="tl-company">Asiana Hotel, Dubai · 5-Star Hotel</div>
-                    <p class="tl-desc">
-                        Supported daily restaurant operations including recruitment, employee development, and
-                        performance management. Oversaw inventory and supplier ordering, optimising cost and
-                        ensuring guest satisfaction.
-                    </p>
+                    <p class="tl-desc">Supported daily restaurant operations including recruitment, employee development, and performance management. Oversaw inventory and supplier ordering, optimising cost and ensuring guest satisfaction.</p>
                 </div>
-
                 <div class="tl-item">
                     <div class="tl-head">
                         <div class="tl-title">Outlet Supervisor</div>
                         <div class="tl-date">Mar 2006 – Mar 2011</div>
                     </div>
                     <div class="tl-company">Waterfront Airport Hotel & Casino, Cebu · 5-Star Hotel</div>
-                    <p class="tl-desc">
-                        Planned and supervised dining area operations, ensuring efficient food delivery, outlet
-                        maintenance, and adherence to hotel standards. Increased shift revenue and guest
-                        satisfaction through prompt, strategic service delivery.
-                    </p>
+                    <p class="tl-desc">Planned and supervised dining area operations, ensuring efficient food delivery, outlet maintenance, and adherence to hotel standards. Increased shift revenue and guest satisfaction through prompt, strategic service delivery.</p>
                 </div>
-
             </div>
         </div>
     </section>
@@ -1105,7 +1095,7 @@
     <section class="block" id="awards">
         <div class="container">
             <div class="section-head">
-                <h2>Awards & Commendations</h2>
+                <h2>Awards &amp; Commendations</h2>
                 <span class="section-num">03 / Recognition</span>
             </div>
             <ul class="compact-list">
@@ -1267,9 +1257,7 @@
                             <label for="message">Message</label>
                             <textarea id="message" class="form-control" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
                     </form>
                 </div>
             </div>
@@ -1342,8 +1330,13 @@
         }
 
         // ============================================================
-        // COMPACT, PROFESSIONAL ATS CV TEMPLATE
+        // ATS CV — A4 SIZED WITH PROPER PAGE MARGINS
         // ============================================================
+        // Page: A4 = 210mm x 297mm
+        // PDF margin: 12mm on all sides
+        // So the inner content box is 186mm wide (210 − 12 − 12)
+        // #cv inside the helper window will be 186mm wide, and the outer wrapper
+        // gets the 12mm padding so nothing clips and nothing wastes space.
         const ATS_CV_HTML = `
 <!DOCTYPE html>
 <html lang="en">
@@ -1358,62 +1351,97 @@
         font-family: Arial, Helvetica, sans-serif;
         font-size: 10pt; line-height: 1.35;
     }
+
+    /* The renderable wrapper — exactly the printable A4 content area */
     #cv {
-        width: 210mm; min-height: 297mm;
-        padding: 14mm 14mm 12mm 14mm;
-        background: #fff; margin: 0 auto;
+        width: 186mm;      /* 210mm − 12mm left − 12mm right */
+        padding: 4mm 0;    /* small top/bottom inside the 12mm page margin */
+        background: #fff;
+        margin: 0 auto;
     }
+
+    /* ============ HEADER ============ */
     .name {
-        font-size: 22pt; font-weight: 700; letter-spacing: .8px;
+        font-size: 21pt; font-weight: 700; letter-spacing: .8px;
         text-transform: uppercase; line-height: 1.1; margin-bottom: 3px;
     }
     .title { font-size: 10.5pt; font-weight: 500; letter-spacing: .4px; color: #222; margin-bottom: 6px; }
     .contact {
-        font-size: 9.5pt; color: #111; padding-bottom: 6px;
+        font-size: 9.3pt; color: #111; padding-bottom: 6px;
         border-bottom: 1.5px solid #000; line-height: 1.5;
     }
-    .contact span { display: inline-block; margin-right: 10px; white-space: nowrap; }
-    .contact span:not(:last-child)::after { content: "  •"; margin-left: 10px; color: #666; }
+    .contact span { display: inline-block; margin-right: 6px; white-space: nowrap; }
+    .contact span:not(:last-child)::after { content: "•"; margin: 0 6px; color: #666; }
+
+    /* ============ SECTION HEADINGS ============ */
     .section {
         font-size: 10.5pt; font-weight: 700; letter-spacing: 1.2px;
-        text-transform: uppercase; margin-top: 11px; margin-bottom: 5px;
+        text-transform: uppercase; margin-top: 10px; margin-bottom: 5px;
         padding-bottom: 2px; border-bottom: .8px solid #000;
+        page-break-after: avoid; break-after: avoid;
     }
-    .summary { font-size: 10pt; text-align: justify; line-height: 1.4; }
-    .competencies { font-size: 9.8pt; line-height: 1.45; }
-    .job { margin-bottom: 8px; page-break-inside: avoid; }
+
+    /* ============ SUMMARY ============ */
+    .summary { font-size: 9.8pt; text-align: justify; line-height: 1.4; }
+
+    /* ============ COMPETENCIES ============ */
+    .competencies { font-size: 9.6pt; line-height: 1.42; }
+
+    /* ============ JOBS ============ */
+    .job {
+        margin-bottom: 8px;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
     .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
     .job-title { font-size: 10.5pt; font-weight: 700; }
-    .job-date { font-size: 9.3pt; font-weight: 500; color: #333; font-style: italic; white-space: nowrap; }
-    .job-company { font-size: 9.8pt; font-weight: 500; color: #222; font-style: italic; margin: 1px 0 2px 0; }
+    .job-date { font-size: 9.2pt; font-weight: 500; color: #333; font-style: italic; white-space: nowrap; }
+    .job-company { font-size: 9.6pt; font-weight: 500; color: #222; font-style: italic; margin: 1px 0 2px 0; }
     .job ul { margin: 2px 0 0 14px; padding: 0; list-style-type: disc; }
-    .job ul li { font-size: 9.8pt; line-height: 1.4; margin-bottom: 1.5px; }
+    .job ul li { font-size: 9.6pt; line-height: 1.4; margin-bottom: 1.5px; }
+
+    /* ============ TWO-COLUMN COMPACT LIST ============ */
     .two-col-list { display: flex; flex-wrap: wrap; margin: 0 -4px; list-style: none; }
     .two-col-list li {
         width: 50%; padding: 0 4px 0 14px; margin-bottom: 2px;
-        position: relative; font-size: 9.5pt; line-height: 1.4; box-sizing: border-box;
+        position: relative; font-size: 9.4pt; line-height: 1.4; box-sizing: border-box;
     }
     .two-col-list li::before { content: "▪"; position: absolute; left: 4px; font-size: 8pt; top: 1px; }
-    .languages { font-size: 9.8pt; line-height: 1.45; }
+
+    /* ============ LANGUAGES ============ */
+    .languages { font-size: 9.6pt; line-height: 1.45; }
     .lang-name { font-weight: 700; }
     .lang-level { color: #333; }
+
+    /* ============ EDUCATION ============ */
     .edu-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
     .edu-degree { font-size: 10.5pt; font-weight: 700; }
-    .edu-date { font-size: 9.3pt; font-style: italic; color: #333; white-space: nowrap; }
-    .edu-school { font-size: 9.8pt; font-style: italic; color: #222; margin-top: 1px; }
-    .refs { width: 100%; border-collapse: collapse; font-size: 9.6pt; line-height: 1.4; }
+    .edu-date { font-size: 9.2pt; font-style: italic; color: #333; white-space: nowrap; }
+    .edu-school { font-size: 9.6pt; font-style: italic; color: #222; margin-top: 1px; }
+
+    /* ============ REFERENCES ============ */
+    .refs { width: 100%; border-collapse: collapse; font-size: 9.5pt; line-height: 1.4; }
     .refs td { vertical-align: top; width: 50%; padding: 2px 10px 2px 0; }
-    .ref-name { font-weight: 700; font-size: 10pt; }
+    .ref-name { font-weight: 700; font-size: 9.9pt; }
     .ref-role { font-style: italic; color: #222; }
+
+    /* ============ FOOTER ============ */
     .footer-note {
         margin-top: 10px; padding-top: 4px; border-top: .5px solid #999;
         font-size: 8.5pt; font-style: italic; text-align: center; color: #555;
     }
+
+    /* ============ PAGE BREAK RULES ============ */
+    .keep-together { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Force a page break before this class if needed */
+    .page-break-before { page-break-before: always; break-before: page; }
 </style>
 </head>
 <body>
 <div id="cv">
 
+    <!-- ============ HEADER ============ -->
     <div class="name">Jennifel Arreza</div>
     <div class="title">Hospitality Operations Manager</div>
     <div class="contact">
@@ -1423,6 +1451,7 @@
         <span>linkedin.com/in/jennifel-arreza</span>
     </div>
 
+    <!-- ============ SUMMARY ============ -->
     <div class="section">Professional Summary</div>
     <p class="summary">
         Hospitality Operations Manager with over 10 years of experience leading outlet operations in
@@ -1432,6 +1461,7 @@
         exceeding quality and profitability targets.
     </p>
 
+    <!-- ============ COMPETENCIES ============ -->
     <div class="section">Core Competencies</div>
     <p class="competencies">
         <strong>Operations:</strong> Outlet Management · Team Leadership · Revenue Optimization ·
@@ -1441,9 +1471,10 @@
         <strong>Development:</strong> Staff Training · Performance Management · Talent Development
     </p>
 
+    <!-- ============ EXPERIENCE ============ -->
     <div class="section">Professional Experience</div>
 
-    <div class="job">
+    <div class="job keep-together">
         <div class="job-head">
             <div class="job-title">Restaurant Manager</div>
             <div class="job-date">Dec 2023 – Nov 2026</div>
@@ -1455,7 +1486,7 @@
         </ul>
     </div>
 
-    <div class="job">
+    <div class="job keep-together">
         <div class="job-head">
             <div class="job-title">Outlet Manager</div>
             <div class="job-date">Mar 2017 – Dec 2023</div>
@@ -1468,7 +1499,7 @@
         </ul>
     </div>
 
-    <div class="job">
+    <div class="job keep-together">
         <div class="job-head">
             <div class="job-title">Outlet Assistant Manager</div>
             <div class="job-date">Mar 2011 – Mar 2017</div>
@@ -1480,7 +1511,7 @@
         </ul>
     </div>
 
-    <div class="job">
+    <div class="job keep-together">
         <div class="job-head">
             <div class="job-title">Outlet Supervisor</div>
             <div class="job-date">Mar 2006 – Mar 2011</div>
@@ -1493,8 +1524,9 @@
         </ul>
     </div>
 
+    <!-- ============ EDUCATION ============ -->
     <div class="section">Education</div>
-    <div class="job">
+    <div class="job keep-together">
         <div class="edu-head">
             <div class="edu-degree">BS Medical Technology</div>
             <div class="edu-date">1992 – 1997</div>
@@ -1502,12 +1534,14 @@
         <div class="edu-school">Southwestern University — Cebu City, Philippines</div>
     </div>
 
+    <!-- ============ LANGUAGES ============ -->
     <div class="section">Languages</div>
     <div class="languages">
         <div><span class="lang-name">English</span> — <span class="lang-level">American English (Full Professional Proficiency)</span></div>
         <div><span class="lang-name">Tagalog</span> — <span class="lang-level">Philippine Language (Native / Full Professional Proficiency)</span></div>
     </div>
 
+    <!-- ============ AWARDS ============ -->
     <div class="section">Awards &amp; Commendations</div>
     <ul class="two-col-list">
         <li>Manager of the 3rd Quarter 2025 — IlBelPaese Group (11/2025)</li>
@@ -1522,6 +1556,7 @@
         <li>Cebu Goes Culinary Table Setting — Silver Award (06/2002)</li>
     </ul>
 
+    <!-- ============ TRAINING ============ -->
     <div class="section">Training &amp; Certifications</div>
     <ul class="two-col-list">
         <li>HACCP Training (01/2018)</li>
@@ -1538,6 +1573,7 @@
         <li>Creative Idea Circle Training (11/2002)</li>
     </ul>
 
+    <!-- ============ REFERENCES ============ -->
     <div class="section">Character References</div>
     <table class="refs">
         <tr>
@@ -1563,11 +1599,12 @@
 </div>
 
 <script>
-    window.addEventListener('load', function() {
-        setTimeout(function() {
+    window.addEventListener('load', function () {
+        setTimeout(function () {
             var element = document.getElementById('cv');
+
             var opt = {
-                margin: 0,
+                margin: [12, 12, 12, 12],   // ← proper 12mm page margins on all sides
                 filename: 'Jennifel_Arreza_CV.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: {
@@ -1576,15 +1613,26 @@
                     logging: false,
                     backgroundColor: '#ffffff',
                     windowWidth: element.scrollWidth,
-                    windowHeight: element.scrollHeight
+                    windowHeight: element.scrollHeight,
+                    scrollX: 0,
+                    scrollY: 0
                 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait', compress: true },
-                pagebreak: { mode: ['css', 'legacy'] }
+                jsPDF: {
+                    unit: 'mm',
+                    format: 'a4',
+                    orientation: 'portrait',
+                    compress: true
+                },
+                pagebreak: {
+                    mode: ['css', 'legacy'],
+                    avoid: ['.job', '.section', '.keep-together']
+                }
             };
-            html2pdf().set(opt).from(element).save().then(function() {
+
+            html2pdf().set(opt).from(element).save().then(function () {
                 if (window.opener) window.opener.postMessage({ type: 'cvDownloaded' }, '*');
-                setTimeout(function() { window.close(); }, 1200);
-            }).catch(function(err) {
+                setTimeout(function () { window.close(); }, 1200);
+            }).catch(function (err) {
                 console.error('PDF error:', err);
                 alert('PDF generation failed: ' + err.message);
             });
