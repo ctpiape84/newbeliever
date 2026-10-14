@@ -4,211 +4,949 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jennifel Arreza - Operation Manager</title>
+    <title>Jennifel Arreza — Hospitality Operations Manager</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
         :root {
-            --primary-color: #1a472a;
-            --secondary-color: #d4af37;
-            --accent-color: #b8860b;
-            --light-color: #f8f9fa;
-            --text-color: #333;
-            --text-light: #777;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
+            --navy: #0f2740;
+            --navy-light: #16324f;
+            --gold: #b8935a;
+            --gold-dark: #9a7742;
+            --ink: #1c1c1c;
+            --muted: #5c6470;
+            --line: #e3e6ea;
+            --bg-soft: #f6f7f9;
+            --bg-white: #ffffff;
+            --radius: 6px;
+            --shadow-sm: 0 1px 2px rgba(15, 39, 64, .06);
+            --shadow-md: 0 4px 14px rgba(15, 39, 64, .08);
+            --transition: .25s ease;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; scroll-padding-top: 70px; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #f9f9f9;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 15px;
+            line-height: 1.55;
+            color: var(--ink);
+            background: var(--bg-soft);
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
 
+        .container {
+            width: 92%;
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        /* ===================== HEADER ===================== */
         header {
-            background-color: var(--primary-color);
-            color: white;
-            position: fixed;
-            width: 100%;
+            position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: var(--shadow);
+            background: rgba(255, 255, 255, .94);
+            backdrop-filter: saturate(180%) blur(10px);
+            -webkit-backdrop-filter: saturate(180%) blur(10px);
+            border-bottom: 1px solid var(--line);
         }
 
-        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
-        .logo { font-size: 1.5rem; font-weight: 700; color: white; text-decoration: none; }
-        .logo span { color: var(--secondary-color); }
-
-        .nav-links { display: flex; list-style: none; }
-        .nav-links li { margin-left: 2rem; }
-        .nav-links a { color: white; text-decoration: none; font-weight: 500; transition: var(--transition); }
-        .nav-links a:hover { color: var(--secondary-color); }
-        .nav-links a.active { color: var(--secondary-color) !important; font-weight: 600; position: relative; }
-        .nav-links a.active::after {
-            content: ''; position: absolute; bottom: -5px; left: 0;
-            width: 100%; height: 2px; background-color: var(--secondary-color);
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
         }
 
-        .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
+        .logo {
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: .4px;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
 
+        .logo-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--navy);
+            color: #fff;
+            border-radius: 5px;
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: .5px;
+        }
+
+        .logo-mark span { color: var(--gold); }
+
+        .nav-links {
+            display: flex;
+            gap: 2px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: .82rem;
+            font-weight: 500;
+            color: var(--muted);
+            padding: 7px 11px;
+            border-radius: 4px;
+            transition: var(--transition);
+            letter-spacing: .2px;
+        }
+
+        .nav-links a:hover { color: var(--navy); background: var(--bg-soft); }
+        .nav-links a.active { color: var(--navy); font-weight: 600; }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.15rem;
+            color: var(--navy);
+            padding: 6px;
+        }
+
+        /* ===================== HERO ===================== */
         .hero {
-            background: linear-gradient(rgba(26, 71, 42, 0.8), rgba(26, 71, 42, 0.8)),
-                url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover; background-position: center;
-            color: white; padding: 150px 0 100px; text-align: center;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: #fff;
+            padding: 72px 0 64px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(600px 240px at 85% 20%, rgba(184, 147, 90, .18), transparent 70%),
+                radial-gradient(500px 200px at 10% 90%, rgba(184, 147, 90, .08), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(184, 147, 90, .4);
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: -.6px;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .hero-role {
+            font-size: 1rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, .82);
+            letter-spacing: .5px;
+            margin-bottom: 18px;
+        }
+
+        .hero-desc {
+            font-size: .95rem;
+            color: rgba(255, 255, 255, .78);
+            max-width: 520px;
+            margin-bottom: 26px;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 26px;
+        }
 
         .btn {
-            display: inline-block; background-color: var(--secondary-color); color: var(--primary-color);
-            padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: 600;
-            transition: var(--transition); border: none; cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .3px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
         }
-        .btn:hover { background-color: var(--accent-color); transform: translateY(-3px); box-shadow: var(--shadow); }
 
-        section { padding: 80px 0; }
-        .section-title { text-align: center; margin-bottom: 3rem; }
-        .section-title h2 { font-size: 2.5rem; color: var(--primary-color); position: relative; display: inline-block; padding-bottom: 10px; }
-        .section-title h2::after {
-            content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-            width: 80px; height: 4px; background-color: var(--secondary-color);
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+        .btn-primary:hover {
+            background: var(--gold-dark);
+            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(184, 147, 90, .3);
         }
 
-        .about-content { display: flex; align-items: center; gap: 3rem; }
-        .about-img { flex: 1; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
-        .about-img img { width: 100%; height: auto; display: block; transition: var(--transition); }
-        .about-img:hover img { transform: scale(1.05); }
-        .about-text { flex: 2; }
-        .about-text h3 { font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--primary-color); }
-        .about-text p { margin-bottom: 1.5rem; color: var(--text-light); }
-
-        .skills-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; }
-        .skill-tag { background-color: var(--light-color); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; border-left: 3px solid var(--secondary-color); }
-
-        .timeline { position: relative; max-width: 1000px; margin: 0 auto; }
-        .timeline::after {
-            content: ''; position: absolute; width: 6px; background-color: var(--secondary-color);
-            top: 0; bottom: 0; left: 50%; margin-left: -3px;
+        .btn-ghost {
+            background: transparent;
+            color: #fff;
+            border-color: rgba(255, 255, 255, .3);
         }
-        .timeline-item { padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box; }
-        .timeline-item:nth-child(odd) { left: 0; }
-        .timeline-item:nth-child(even) { left: 50%; }
-        .timeline-content {
-            padding: 28px 32px; background: white; border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); min-height: 190px;
-            transition: all 0.3s ease; position: relative; border: 1px solid #f8f9fa;
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, .1);
+            border-color: rgba(255, 255, 255, .6);
         }
-        .timeline-content:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); border-color: var(--secondary-color); }
-        .timeline-content h3 { margin-bottom: 10px; color: var(--primary-color); font-size: 1.3rem; }
-        .timeline-content .date { color: var(--secondary-color); font-weight: 600; margin-bottom: 10px; display: block; }
-        .timeline-content p { color: var(--text-light); line-height: 1.6; }
-        .timeline-item::after {
-            content: ''; position: absolute; width: 20px; height: 20px; background-color: white;
-            border: 4px solid var(--secondary-color); border-radius: 50%; top: 15px; z-index: 1;
+
+        .hero-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .75);
         }
-        .timeline-item:nth-child(odd)::after { right: -10px; }
-        .timeline-item:nth-child(even)::after { left: -10px; }
 
-        .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
-        .card { background-color: white; border-radius: 8px; box-shadow: var(--shadow); padding: 2rem; border-top: 4px solid var(--secondary-color); min-height: 250px; }
-        .card h3 { color: var(--primary-color); margin-bottom: 1rem; font-size: 1.3rem; }
-        .card p { color: var(--text-light); margin-bottom: 0.5rem; line-height: 1.6; }
+        .hero-contact span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
 
-        .language-item { margin-bottom: 1.5rem; }
-        .language-name { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
-        .language-bar { height: 10px; background-color: #e0e0e0; border-radius: 5px; overflow: hidden; }
-        .language-progress { height: 100%; background-color: var(--secondary-color); border-radius: 5px; }
+        .hero-contact i {
+            color: var(--gold);
+            font-size: .78rem;
+        }
 
-        .training-container { max-width: 800px; margin: 0 auto; }
-        .training-list { list-style: none; background-color: white; border-radius: 8px; box-shadow: var(--shadow); overflow: hidden; }
-        .training-item { padding: 1.5rem 2rem; display: flex; align-items: center; border-bottom: 1px solid #f0f0f0; }
-        .training-item:last-child { border-bottom: none; }
-        .training-date { min-width: 100px; font-weight: 600; color: var(--secondary-color); margin-right: 2rem; font-size: 1rem; }
-        .training-name { flex-grow: 1; font-size: 1.1rem; color: var(--primary-color); }
+        /* Right stat panel */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: rgba(255, 255, 255, .12);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .12);
+        }
 
-        .contact-container { display: flex; gap: 3rem; }
-        .contact-info { flex: 1; }
-        .contact-item { display: flex; align-items: center; margin-bottom: 1.5rem; }
-        .contact-icon { width: 50px; height: 50px; background-color: var(--secondary-color); color: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-size: 1.2rem; }
-        .contact-form { flex: 2; }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
-        .form-control { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; font-size: 1rem; }
-        textarea.form-control { height: 150px; resize: vertical; }
+        .stat {
+            padding: 20px 18px;
+            background: rgba(255, 255, 255, .04);
+            text-align: left;
+        }
 
-        footer { background-color: var(--primary-color); color: white; padding: 3rem 0; text-align: center; }
-        .social-links { display: flex; justify-content: center; margin-bottom: 2rem; }
-        .social-links a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.1); color: white; border-radius: 50%; margin: 0 10px; }
-        .social-links a:hover { background-color: var(--secondary-color); color: var(--primary-color); }
+        .stat-num {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: -.5px;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
 
+        .stat-label {
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: rgba(255, 255, 255, .65);
+            font-weight: 500;
+        }
+
+        /* ===================== SECTIONS ===================== */
+        section.block {
+            padding: 56px 0;
+        }
+
+        section.alt {
+            background: var(--bg-white);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section-head h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -.3px;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-head h2::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .section-head .section-num {
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        /* ===================== ABOUT ===================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 36px;
+            align-items: start;
+        }
+
+        .about-photo {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--line);
+            background: var(--bg-soft);
+        }
+
+        .about-photo img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .about-text h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            font-size: .92rem;
+            margin-bottom: 12px;
+            line-height: 1.65;
+        }
+
+        .expertise {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px dashed var(--line);
+        }
+
+        .expertise-title {
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            font-size: .78rem;
+            padding: 4px 10px;
+            border-radius: 3px;
+            background: var(--bg-soft);
+            color: var(--navy);
+            border: 1px solid var(--line);
+            font-weight: 500;
+        }
+
+        /* ===================== TIMELINE ===================== */
+        .timeline {
+            position: relative;
+            padding-left: 22px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            bottom: 6px;
+            width: 1px;
+            background: var(--line);
+        }
+
+        .tl-item {
+            position: relative;
+            padding-bottom: 22px;
+        }
+
+        .tl-item:last-child { padding-bottom: 0; }
+
+        .tl-item::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 6px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 0 3px var(--bg-soft);
+        }
+
+        .tl-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 2px;
+        }
+
+        .tl-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+            letter-spacing: -.1px;
+        }
+
+        .tl-date {
+            font-size: .78rem;
+            font-weight: 500;
+            color: var(--muted);
+            letter-spacing: .2px;
+            white-space: nowrap;
+            padding: 2px 9px;
+            background: var(--bg-soft);
+            border-radius: 3px;
+            border: 1px solid var(--line);
+        }
+
+        .tl-company {
+            font-size: .86rem;
+            color: var(--gold-dark);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .tl-desc {
+            font-size: .87rem;
+            color: var(--muted);
+            line-height: 1.6;
+            max-width: 720px;
+        }
+
+        /* ===================== CARDS ===================== */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px 22px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card:hover {
+            border-color: var(--gold);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: .98rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .card .card-meta {
+            font-size: .78rem;
+            color: var(--gold-dark);
+            font-weight: 500;
+            letter-spacing: .2px;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: .87rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .card p + p { margin-top: 4px; }
+
+        /* ===================== LIST ITEMS (awards/training) ===================== */
+        .compact-list {
+            list-style: none;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .compact-list li {
+            display: grid;
+            grid-template-columns: 92px 1fr;
+            gap: 18px;
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--line);
+            font-size: .88rem;
+            transition: var(--transition);
+            align-items: baseline;
+        }
+
+        .compact-list li:last-child { border-bottom: none; }
+        .compact-list li:hover { background: var(--bg-soft); }
+
+        .compact-list .when {
+            font-size: .78rem;
+            font-weight: 600;
+            color: var(--gold-dark);
+            letter-spacing: .3px;
+            white-space: nowrap;
+        }
+
+        .compact-list .what {
+            color: var(--ink);
+            line-height: 1.5;
+        }
+
+        /* ===================== LANGUAGES ===================== */
+        .lang-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .lang-item {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 18px 20px;
+        }
+
+        .lang-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .lang-name {
+            font-size: .98rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .lang-level {
+            font-size: .78rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .lang-bar {
+            height: 4px;
+            background: var(--line);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .lang-bar > span {
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+            border-radius: 2px;
+        }
+
+        /* ===================== REFERENCES ===================== */
+        .refs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .ref-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--gold);
+            border-radius: var(--radius);
+            padding: 20px 22px;
+        }
+
+        .ref-card h3 {
+            font-size: .98rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+
+        .ref-card .ref-role {
+            font-size: .8rem;
+            color: var(--gold-dark);
+            font-weight: 500;
+            letter-spacing: .2px;
+            margin-bottom: 8px;
+        }
+
+        .ref-card p {
+            font-size: .84rem;
+            color: var(--muted);
+            line-height: 1.55;
+        }
+
+        /* ===================== CONTACT ===================== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 16px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+        }
+
+        .contact-row .ic {
+            flex-shrink: 0;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 4px;
+            font-size: .85rem;
+        }
+
+        .contact-row .label {
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 2px;
+        }
+
+        .contact-row .value {
+            font-size: .9rem;
+            color: var(--ink);
+            font-weight: 500;
+            word-break: break-word;
+        }
+
+        .form-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 26px;
+        }
+
+        .form-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 18px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .form-group { margin-bottom: 14px; }
+
+        .form-group label {
+            display: block;
+            font-size: .75rem;
+            font-weight: 600;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: .88rem;
+            color: var(--ink);
+            background: var(--bg-soft);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(184, 147, 90, .12);
+        }
+
+        textarea.form-control { resize: vertical; min-height: 100px; }
+
+        /* ===================== FOOTER ===================== */
+        footer {
+            background: var(--navy);
+            color: rgba(255, 255, 255, .7);
+            padding: 32px 0;
+            text-align: center;
+            font-size: .82rem;
+            letter-spacing: .2px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .social-links a {
+            width: 34px;
+            height: 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .06);
+            color: rgba(255, 255, 255, .75);
+            transition: var(--transition);
+            font-size: .85rem;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--navy);
+            transform: translateY(-2px);
+        }
+
+        footer p { color: rgba(255, 255, 255, .5); }
+
+        /* ===================== FLOATING ELEMENTS ===================== */
         #scrollToTop {
-            position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
-            background-color: var(--secondary-color); color: var(--primary-color);
-            border: none; border-radius: 50%; font-size: 1.5rem; font-weight: bold;
-            cursor: pointer; box-shadow: var(--shadow); transition: var(--transition);
-            opacity: 0; visibility: hidden; z-index: 1000;
-            display: flex; align-items: center; justify-content: center;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: #fff;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 900;
         }
         #scrollToTop.show { opacity: 1; visibility: visible; }
+        #scrollToTop:hover { background: var(--gold); color: var(--navy); transform: translateY(-2px); }
 
         .pdf-notification {
-            position: fixed; top: 100px; right: 20px; background: white;
-            padding: 15px 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border-left: 4px solid #4CAF50; z-index: 10000; display: flex;
-            align-items: center; gap: 15px; max-width: 300px;
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: #fff;
+            padding: 12px 16px;
+            border-radius: 6px;
+            box-shadow: 0 8px 22px rgba(15, 39, 64, .15);
+            border-left: 3px solid #2e8b57;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            max-width: 320px;
+            font-size: .85rem;
+            animation: slideInRight .3s ease;
         }
-        .pdf-notification.error { border-left-color: #f44336; }
-        .pdf-notification button { background: none; border: none; font-size: 18px; cursor: pointer; color: #666; }
+        .pdf-notification.error { border-left-color: #c0392b; }
+        .pdf-notification button {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            color: var(--muted);
+            padding: 0;
+            line-height: 1;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(120%); opacity: 0; }
+            to   { transform: translateX(0); opacity: 1; }
+        }
 
         .loading-overlay {
-            position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6);
-            z-index: 99999; display: flex; align-items: center; justify-content: center;
-            flex-direction: column; gap: 1rem; color: white; font-size: 1.2rem;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 39, 64, .72);
+            backdrop-filter: blur(4px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 14px;
+            color: #fff;
+            font-size: .95rem;
+            letter-spacing: .3px;
         }
+
         .spinner {
-            width: 50px; height: 50px;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            border-top-color: var(--secondary-color);
-            border-radius: 50%; animation: spin 0.8s linear infinite;
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, .2);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin .8s linear infinite;
         }
+
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        @media (max-width: 992px) { .about-content, .contact-container { flex-direction: column; } }
+        /* ===================== RESPONSIVE ===================== */
+        @media (max-width: 900px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 34px; }
+            .hero h1 { font-size: 2.1rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 22px; }
+            .about-photo img { height: 220px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 26px; }
+        }
 
-        @media (max-width: 768px) {
+        @media (max-width: 720px) {
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 8px;
+                border-bottom: 1px solid var(--line);
+                transform: translateY(-12px);
+                opacity: 0;
+                pointer-events: none;
+                transition: var(--transition);
+                box-shadow: var(--shadow-md);
+            }
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+            .nav-links a { padding: 12px 14px; border-radius: 4px; font-size: .88rem; }
+
             .hamburger { display: block; }
-            .nav-links { position: fixed; top: 70px; right: -100%; flex-direction: column; background-color: var(--primary-color); width: 100%; text-align: center; transition: var(--transition); }
-            .nav-links.active { right: 0; }
-            .nav-links li { margin: 1rem 0; }
-            .hero-content h1 { font-size: 2.5rem; }
-            .timeline::after { left: 31px; }
-            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
-            .timeline-item:nth-child(even) { left: 0; }
-            .timeline-item::after, .timeline-item:nth-child(odd)::after, .timeline-item:nth-child(even)::after { left: 21px; }
-            .timeline-content { min-height: auto; padding: 20px; }
-            .training-item { flex-direction: column; align-items: flex-start; padding: 1.2rem 1.5rem; }
-            .training-date { margin-right: 0; margin-bottom: 0.5rem; min-width: auto; }
+
+            section.block { padding: 42px 0; }
+            .section-head { margin-bottom: 22px; }
+            .section-head h2 { font-size: 1.15rem; }
+
+            .grid-2,
+            .lang-grid,
+            .refs-grid,
+            .form-row { grid-template-columns: 1fr; }
+
+            .hero { padding: 52px 0 48px; }
+            .hero h1 { font-size: 1.85rem; }
+            .hero-role { font-size: .92rem; }
+            .hero-desc { font-size: .88rem; }
+
+            .hero-stats { grid-template-columns: 1fr 1fr; }
+
+            .compact-list li {
+                grid-template-columns: 1fr;
+                gap: 4px;
+                padding: 12px 16px;
+            }
+
+            .tl-head { gap: 6px; }
+
+            .card, .ref-card, .form-card, .lang-item { padding: 18px; }
+
+            #scrollToTop { bottom: 16px; right: 16px; }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 { font-size: 1.6rem; }
+            .stat-num { font-size: 1.35rem; }
+            .btn { padding: 9px 16px; font-size: .8rem; }
         }
     </style>
 </head>
 
 <body>
-    <!-- Header & Navigation -->
+
+    <!-- ===================== HEADER ===================== -->
     <header>
         <div class="container nav-container">
-            <a href="#home" class="logo">Jennifel<span>Arreza</span></a>
+            <a href="#home" class="logo">
+                <span class="logo-mark">JA<span>.</span></span>
+                Jennifel Arreza
+            </a>
             <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
             <ul class="nav-links" id="nav-links">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#awards">Awards</a></li>
@@ -221,44 +959,77 @@
         </div>
     </header>
 
-    <!-- Hero -->
+    <!-- ===================== HERO ===================== -->
     <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Jennifel Arreza</h1>
-            <p>Hospitality Management Professional with 10+ years of experience in luxury hotel operations, guest
-                services, and team leadership.</p>
-            <a href="#contact" class="btn">Get In Touch</a>
-            <a href="#" class="btn" id="download-cv">Download CV</a>
+        <div class="container hero-inner">
+            <div>
+                <span class="hero-eyebrow">Hospitality · Operations</span>
+                <h1>Jennifel Arreza</h1>
+                <div class="hero-role">Hospitality Operations Manager</div>
+                <p class="hero-desc">
+                    Over a decade of leading outlet operations across 5-star hotels and premium restaurant
+                    groups — specialising in revenue growth, team performance, and world-class guest experience.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Get In Touch
+                    </a>
+                    <a href="#" class="btn btn-ghost" id="download-cv">
+                        <i class="fas fa-file-arrow-down"></i> Download CV
+                    </a>
+                </div>
+                <div class="hero-contact">
+                    <span><i class="fas fa-map-marker-alt"></i> Discovery Bay, Hong Kong</span>
+                    <span><i class="fas fa-phone"></i> +852 6438 5951</span>
+                    <span><i class="fas fa-envelope"></i> gjlance@yahoo.com</span>
+                </div>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Years Experience</div></div>
+                <div class="stat"><div class="stat-num">5★</div><div class="stat-label">Luxury Hotels</div></div>
+                <div class="stat"><div class="stat-num">4</div><div class="stat-label">Leadership Roles</div></div>
+                <div class="stat"><div class="stat-num">11+</div><div class="stat-label">Awards Received</div></div>
+            </div>
         </div>
     </section>
 
-    <!-- About -->
-    <section id="about">
+    <!-- ===================== ABOUT ===================== -->
+    <section class="block" id="about">
         <div class="container">
-            <div class="section-title"><h2>About Me</h2></div>
-            <div class="about-content">
-                <div class="about-img"><img src="fel.jpeg" alt="Jennifel Arreza"></div>
+            <div class="section-head">
+                <h2>About</h2>
+                <span class="section-num">01 / Profile</span>
+            </div>
+            <div class="about-grid">
+                <div class="about-photo">
+                    <img src="fel.jpeg" alt="Jennifel Arreza">
+                </div>
                 <div class="about-text">
-                    <h3>Welcome to My Professional Portfolio</h3>
-                    <p>I am a dedicated hospitality professional with extensive experience in luxury hotel management,
-                        guest relations, and operational excellence. My passion lies in creating exceptional guest
-                        experiences and leading high-performing teams.</p>
-                    <p>Throughout my career, I've successfully managed departments in 5-star hotels and resorts,
-                        implemented service improvement initiatives, and trained teams to deliver world-class
-                        hospitality standards.</p>
-                    <p>I believe that attention to detail, personalized service, and a genuine passion for hospitality
-                        are the keys to creating memorable experiences for guests.</p>
-                    <div class="skills">
-                        <h4>Areas of Expertise:</h4>
-                        <div class="skills-list">
-                            <span class="skill-tag">Hotel Operations</span>
-                            <span class="skill-tag">Guest Relations</span>
-                            <span class="skill-tag">Team Leadership</span>
-                            <span class="skill-tag">Revenue Management</span>
-                            <span class="skill-tag">Event Planning</span>
-                            <span class="skill-tag">Quality Assurance</span>
-                            <span class="skill-tag">Staff Training</span>
-                            <span class="skill-tag">Luxury Service Standards</span>
+                    <h3>Operations leadership built on service excellence</h3>
+                    <p>
+                        I'm a dedicated hospitality professional with extensive experience managing outlets in
+                        luxury hotels and premium restaurants. My focus is on building high-performing teams,
+                        driving revenue, and delivering consistently excellent guest experiences.
+                    </p>
+                    <p>
+                        Across my career, I've successfully managed 5-star outlets, implemented service
+                        improvement initiatives, and trained teams to meet international hospitality standards.
+                        I believe attention to detail and genuine care are what turn good service into memorable
+                        experiences.
+                    </p>
+
+                    <div class="expertise">
+                        <div class="expertise-title">Areas of Expertise</div>
+                        <div class="tags">
+                            <span class="tag">Hotel Operations</span>
+                            <span class="tag">Guest Relations</span>
+                            <span class="tag">Team Leadership</span>
+                            <span class="tag">Revenue Management</span>
+                            <span class="tag">Event Planning</span>
+                            <span class="tag">Quality Assurance</span>
+                            <span class="tag">Staff Training</span>
+                            <span class="tag">Luxury Service Standards</span>
                         </div>
                     </div>
                 </div>
@@ -266,129 +1037,152 @@
         </div>
     </section>
 
-    <!-- Experience -->
-    <section id="experience" style="background-color: #f5f7fa;">
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section class="block alt" id="experience">
         <div class="container">
-            <div class="section-title"><h2>Work Experience</h2></div>
+            <div class="section-head">
+                <h2>Experience</h2>
+                <span class="section-num">02 / Career History</span>
+            </div>
             <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Restaurant Manager</h3>
-                        <p class="date">December 1, 2023 - November 30, 2026</p>
-                        <h4>IlBelPaese Group, (Italian Restaurants)</h4>
-                        <p>Responsible for overseeing the day-to-day operations of all the outlets and ensure it runs
-                            efficiently and effectively, encompassing the production of goods or provision of services,
-                            coordinating different departments, setting and reviewing budgets and implementation
-                            operational policies.</p>
+
+                <div class="tl-item">
+                    <div class="tl-head">
+                        <div class="tl-title">Restaurant Manager</div>
+                        <div class="tl-date">Dec 2023 – Nov 2026</div>
                     </div>
+                    <div class="tl-company">IlBelPaese Group · Italian Restaurants</div>
+                    <p class="tl-desc">
+                        Oversee day-to-day operations across all outlets — ensuring efficient production,
+                        coordinated departments, budget planning, and implementation of operational policies.
+                    </p>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Outlet Manager</h3>
-                        <p class="date">March 2017 - December 2023</p>
-                        <h4>Asiana Hotel, Dubai (5 Star Hotel)</h4>
-                        <p>Responsible for managing the daily operation of the restaurants, including the menu
-                            selection, development, and performance management of employees. Maintain high production,
-                            productivity, quality, and customer-service standards. Optimize profits and ensure that
-                            Guests are satisfied with their dining experience.</p>
+
+                <div class="tl-item">
+                    <div class="tl-head">
+                        <div class="tl-title">Outlet Manager</div>
+                        <div class="tl-date">Mar 2017 – Dec 2023</div>
                     </div>
+                    <div class="tl-company">Asiana Hotel, Dubai · 5-Star Hotel</div>
+                    <p class="tl-desc">
+                        Managed daily restaurant operations including menu selection, product development, and
+                        performance management. Maintained high standards of quality and service while optimising
+                        profitability and guest satisfaction.
+                    </p>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Outlet Assistant Manager</h3>
-                        <p class="date">March 2011 - March 2017</p>
-                        <h4>UAsiana Hotel, Dubai (5 Star Hotel)</h4>
-                        <p>Responsible for managing the daily operation of our restaurant, including the selection,
-                            development and performance management of employees. Will oversee the inventory and
-                            ordering of food and supplies, optimize profits and ensure that Guests are satisfied with
-                            their dining experience.</p>
+
+                <div class="tl-item">
+                    <div class="tl-head">
+                        <div class="tl-title">Outlet Assistant Manager</div>
+                        <div class="tl-date">Mar 2011 – Mar 2017</div>
                     </div>
+                    <div class="tl-company">Asiana Hotel, Dubai · 5-Star Hotel</div>
+                    <p class="tl-desc">
+                        Supported daily restaurant operations including recruitment, employee development, and
+                        performance management. Oversaw inventory and supplier ordering, optimising cost and
+                        ensuring guest satisfaction.
+                    </p>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Outlet Supervisor</h3>
-                        <p class="date">March 2006 - March 2011</p>
-                        <h4>Waterfront Airport Hotel and Casino, Philippines, Cebu (5 Star Hotel)</h4>
-                        <p>Responsible in planning, supervising and monitoring the operations in the dining area by
-                            ensuring efficient and systematic administration of work processes related to food
-                            delivery and outlet maintenance, managing customer traffic and increasing revenues and
-                            productivity within assigned area and work shift within the established guidelines,
-                            standards and procedures of the hotel in order to ensure operational efficiency and achieve
-                            the satisfaction of the dining customers through efficient, prompt & strategic delivery of
-                            service in the dining area.</p>
+
+                <div class="tl-item">
+                    <div class="tl-head">
+                        <div class="tl-title">Outlet Supervisor</div>
+                        <div class="tl-date">Mar 2006 – Mar 2011</div>
                     </div>
+                    <div class="tl-company">Waterfront Airport Hotel & Casino, Cebu · 5-Star Hotel</div>
+                    <p class="tl-desc">
+                        Planned and supervised dining area operations, ensuring efficient food delivery, outlet
+                        maintenance, and adherence to hotel standards. Increased shift revenue and guest
+                        satisfaction through prompt, strategic service delivery.
+                    </p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Awards -->
-    <section id="awards" style="background-color: #f5f7fa;">
+    <!-- ===================== AWARDS ===================== -->
+    <section class="block" id="awards">
         <div class="container">
-            <div class="section-title"><h2>Awards & Commendations</h2></div>
-            <div class="training-container">
-                <ul class="training-list">
-                    <li class="training-item"><span class="training-date">11/2025</span><span class="training-name">Manager of the 3rd Quarter 2025</span></li>
-                    <li class="training-item"><span class="training-date">12/2012</span><span class="training-name">Supervisor of the 4th Quarter 2012</span></li>
-                    <li class="training-item"><span class="training-date">06/2004</span><span class="training-name">Cebu Goes Culinary Table Setting Showcase Competition (Silver Award)</span></li>
-                    <li class="training-item"><span class="training-date">04/2004</span><span class="training-name">F&B Up-seller for Room Service Section</span></li>
-                    <li class="training-item"><span class="training-date">12/2003</span><span class="training-name">Top F&B (Room Service Up-seller)</span></li>
-                    <li class="training-item"><span class="training-date">06/2003</span><span class="training-name">Best Exemplification of Waterfront Way (Be Pro-Active Award)</span></li>
-                    <li class="training-item"><span class="training-date">04/2003</span><span class="training-name">Star of the 1st Quarter 2003 for Front of the House</span></li>
-                    <li class="training-item"><span class="training-date">09/2011</span><span class="training-name">Basic First Aid & CPR</span></li>
-                    <li class="training-item"><span class="training-date">2003</span><span class="training-name">Employee of the Month</span></li>
-                    <li class="training-item"><span class="training-date">2003</span><span class="training-name">Recognition of Deeds (F&B Service)</span></li>
-                    <li class="training-item"><span class="training-date">06/2002</span><span class="training-name">Cebu Goes Culinary Table Setting Showcase Competition (Silver Award)</span></li>
-                </ul>
+            <div class="section-head">
+                <h2>Awards & Commendations</h2>
+                <span class="section-num">03 / Recognition</span>
             </div>
+            <ul class="compact-list">
+                <li><span class="when">11 / 2025</span><span class="what">Manager of the 3rd Quarter 2025</span></li>
+                <li><span class="when">12 / 2012</span><span class="what">Supervisor of the 4th Quarter 2012</span></li>
+                <li><span class="when">06 / 2004</span><span class="what">Cebu Goes Culinary Table Setting Showcase Competition — Silver Award</span></li>
+                <li><span class="when">04 / 2004</span><span class="what">F&amp;B Up-seller for Room Service Section</span></li>
+                <li><span class="when">12 / 2003</span><span class="what">Top F&amp;B — Room Service Up-seller</span></li>
+                <li><span class="when">06 / 2003</span><span class="what">Best Exemplification of Waterfront Way — Be Pro-Active Award</span></li>
+                <li><span class="when">04 / 2003</span><span class="what">Star of the 1st Quarter 2003 for Front of the House</span></li>
+                <li><span class="when">2003</span><span class="what">Employee of the Month</span></li>
+                <li><span class="when">2003</span><span class="what">Recognition of Deeds — F&amp;B Service</span></li>
+                <li><span class="when">06 / 2002</span><span class="what">Cebu Goes Culinary Table Setting Showcase Competition — Silver Award</span></li>
+            </ul>
         </div>
     </section>
 
-    <!-- Education -->
-    <section id="education">
+    <!-- ===================== EDUCATION ===================== -->
+    <section class="block alt" id="education">
         <div class="container">
-            <div class="section-title"><h2>Education</h2></div>
-            <div class="cards-container">
+            <div class="section-head">
+                <h2>Education</h2>
+                <span class="section-num">04 / Academic</span>
+            </div>
+            <div class="grid-2">
                 <div class="card">
                     <h3>BS Medical Technology</h3>
-                    <p class="date">1992 - 1997</p>
-                    <p>Southwestern University (Cebu City, Philippines)</p>
+                    <div class="card-meta">1992 – 1997</div>
+                    <p>Southwestern University · Cebu City, Philippines</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Languages -->
-    <section id="languages" style="background-color: #f5f7fa;">
+    <!-- ===================== LANGUAGES ===================== -->
+    <section class="block" id="languages">
         <div class="container">
-            <div class="section-title"><h2>Language Proficiency</h2></div>
-            <div class="language-list">
-                <div class="language-item">
-                    <div class="language-name"><span>English</span><span>American English</span></div>
-                    <div class="language-bar"><div class="language-progress" style="width: 100%"></div></div>
+            <div class="section-head">
+                <h2>Languages</h2>
+                <span class="section-num">05 / Proficiency</span>
+            </div>
+            <div class="lang-grid">
+                <div class="lang-item">
+                    <div class="lang-head">
+                        <div class="lang-name">English</div>
+                        <div class="lang-level">Full Professional</div>
+                    </div>
+                    <div class="lang-bar"><span style="width: 100%"></span></div>
                 </div>
-                <div class="language-item">
-                    <div class="language-name"><span>Tagalog</span><span>Philippine Language</span></div>
-                    <div class="language-bar"><div class="language-progress" style="width: 100%"></div></div>
+                <div class="lang-item">
+                    <div class="lang-head">
+                        <div class="lang-name">Tagalog</div>
+                        <div class="lang-level">Native</div>
+                    </div>
+                    <div class="lang-bar"><span style="width: 100%"></span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- References -->
-    <section id="references">
+    <!-- ===================== REFERENCES ===================== -->
+    <section class="block alt" id="references">
         <div class="container">
-            <div class="section-title"><h2>Character References</h2></div>
-            <div class="cards-container">
-                <div class="card">
+            <div class="section-head">
+                <h2>Character References</h2>
+                <span class="section-num">06 / Referrals</span>
+            </div>
+            <div class="refs-grid">
+                <div class="ref-card">
                     <h3>Bhawna Sinha</h3>
-                    <p>HR Director</p>
+                    <div class="ref-role">HR Director</div>
                     <p>Asiana Hotel, Deira Dubai</p>
                     <p>Phone: +971 50 697 0723</p>
                 </div>
-                <div class="card">
+                <div class="ref-card">
                     <h3>James Kang</h3>
-                    <p>Chief Executive</p>
+                    <div class="ref-role">Chief Executive</div>
                     <p>Asiana Hotel, Deira Dubai</p>
                     <p>Phone: +971 56 105 1482</p>
                 </div>
@@ -396,71 +1190,102 @@
         </div>
     </section>
 
-    <!-- Training -->
-    <section id="training" style="background-color: #f5f7fa;">
+    <!-- ===================== TRAINING ===================== -->
+    <section class="block" id="training">
         <div class="container">
-            <div class="section-title"><h2>Training & Seminars</h2></div>
-            <div class="training-container">
-                <ul class="training-list">
-                    <li class="training-item"><span class="training-date">01 2018</span><span class="training-name">HACCP Training</span></li>
-                    <li class="training-item"><span class="training-date">08 2018</span><span class="training-name">Skills Training Techniques Workshop</span></li>
-                    <li class="training-item"><span class="training-date">05 2017</span><span class="training-name">Fire Awareness Training</span></li>
-                    <li class="training-item"><span class="training-date">12 2017</span><span class="training-name">Crisis Management in Hospitality - International Hotel & Restaurant Association</span></li>
-                    <li class="training-item"><span class="training-date">2018</span><span class="training-name">TSI Quality Service PIC level 3</span></li>
-                    <li class="training-item"><span class="training-date">10 2012</span><span class="training-name">TSI Quality Service PIC level 3 with Merit</span></li>
-                    <li class="training-item"><span class="training-date">09 2011</span><span class="training-name">Basic First Aid & CPR</span></li>
-                    <li class="training-item"><span class="training-date">02 2007</span><span class="training-name">Effective Business Writing Workshop</span></li>
-                    <li class="training-item"><span class="training-date">01 2006</span><span class="training-name">Job Instruction Technique Workshop</span></li>
-                    <li class="training-item"><span class="training-date">12 2005</span><span class="training-name">Protocol Training</span></li>
-                    <li class="training-item"><span class="training-date">05 2005</span><span class="training-name">Skills Certification Program for Butlers</span></li>
-                    <li class="training-item"><span class="training-date">11 2002</span><span class="training-name">Creative Idea Circle Training</span></li>
-                </ul>
+            <div class="section-head">
+                <h2>Training &amp; Certifications</h2>
+                <span class="section-num">07 / Development</span>
             </div>
+            <ul class="compact-list">
+                <li><span class="when">01 / 2018</span><span class="what">HACCP Training</span></li>
+                <li><span class="when">08 / 2018</span><span class="what">Skills Training Techniques Workshop</span></li>
+                <li><span class="when">05 / 2017</span><span class="what">Fire Awareness Training</span></li>
+                <li><span class="when">12 / 2017</span><span class="what">Crisis Management in Hospitality — International Hotel &amp; Restaurant Association</span></li>
+                <li><span class="when">2018</span><span class="what">TSI Quality Service PIC Level 3</span></li>
+                <li><span class="when">10 / 2012</span><span class="what">TSI Quality Service PIC Level 3 with Merit</span></li>
+                <li><span class="when">09 / 2011</span><span class="what">Basic First Aid &amp; CPR</span></li>
+                <li><span class="when">02 / 2007</span><span class="what">Effective Business Writing Workshop</span></li>
+                <li><span class="when">01 / 2006</span><span class="what">Job Instruction Technique Workshop</span></li>
+                <li><span class="when">12 / 2005</span><span class="what">Protocol Training</span></li>
+                <li><span class="when">05 / 2005</span><span class="what">Skills Certification Program for Butlers</span></li>
+                <li><span class="when">11 / 2002</span><span class="what">Creative Idea Circle Training</span></li>
+            </ul>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact">
+    <!-- ===================== CONTACT ===================== -->
+    <section class="block alt" id="contact">
         <div class="container">
-            <div class="section-title"><h2>Contact Information</h2></div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div><h3>Location</h3><p>Discovery Bay, Hong Kong</p></div>
+            <div class="section-head">
+                <h2>Contact</h2>
+                <span class="section-num">08 / Get In Touch</span>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-list">
+                    <div class="contact-row">
+                        <div class="ic"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <div class="label">Location</div>
+                            <div class="value">Discovery Bay, Hong Kong</div>
+                        </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div><h3>Email</h3><p>gjlance@yahoo.com</p></div>
+                    <div class="contact-row">
+                        <div class="ic"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <div class="label">Email</div>
+                            <div class="value">gjlance@yahoo.com</div>
+                        </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <div><h3>Phone</h3><p>+852 6438 5951</p></div>
+                    <div class="contact-row">
+                        <div class="ic"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <div class="label">Phone</div>
+                            <div class="value">+852 6438 5951</div>
+                        </div>
                     </div>
                 </div>
-                <div class="contact-form">
+
+                <div class="form-card">
+                    <h3>Send a message</h3>
                     <form id="contactForm">
-                        <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" class="form-control" required></div>
-                        <div class="form-group"><label for="email">Your Email</label><input type="email" id="email" class="form-control" required></div>
-                        <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" class="form-control" required></div>
-                        <div class="form-group"><label for="message">Message</label><textarea id="message" class="form-control" required></textarea></div>
-                        <button type="submit" class="btn">Send Message</button>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===================== FOOTER ===================== -->
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
             </div>
-            <p>&copy; 2025 Jennifel Arreza. All Rights Reserved.</p>
+            <p>&copy; 2025 Jennifel Arreza · All Rights Reserved</p>
         </div>
     </footer>
 
@@ -516,9 +1341,9 @@
             if (overlay) overlay.remove();
         }
 
-        // ============ ATS CV HTML (as a string) ============
-        // This will be injected into a new window that ONLY contains this content.
-        // No site CSS can interfere, no positioning issues, no blank canvas.
+        // ============================================================
+        // COMPACT, PROFESSIONAL ATS CV TEMPLATE
+        // ============================================================
         const ATS_CV_HTML = `
 <!DOCTYPE html>
 <html lang="en">
@@ -528,180 +1353,216 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"><\/script>
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
+    html, body {
+        background: #fff; color: #000;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 10.5pt;
-        line-height: 1.45;
-        color: #000;
-        background: #fff;
-        padding: 0;
+        font-size: 10pt; line-height: 1.35;
     }
     #cv {
-        width: 210mm;
-        min-height: 297mm;
-        padding: 15mm 14mm;
-        background: #ffffff;
-        margin: 0 auto;
+        width: 210mm; min-height: 297mm;
+        padding: 14mm 14mm 12mm 14mm;
+        background: #fff; margin: 0 auto;
     }
-    h1.name {
-        font-size: 20pt;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 4px;
+    .name {
+        font-size: 22pt; font-weight: 700; letter-spacing: .8px;
+        text-transform: uppercase; line-height: 1.1; margin-bottom: 3px;
     }
+    .title { font-size: 10.5pt; font-weight: 500; letter-spacing: .4px; color: #222; margin-bottom: 6px; }
     .contact {
-        font-size: 10pt;
-        border-bottom: 1.5px solid #000;
-        padding-bottom: 8px;
-        margin-bottom: 14px;
+        font-size: 9.5pt; color: #111; padding-bottom: 6px;
+        border-bottom: 1.5px solid #000; line-height: 1.5;
     }
-    .contact span { margin-right: 14px; }
-    h2.section {
-        font-size: 12pt;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.6px;
-        border-bottom: 1.2px solid #000;
-        padding-bottom: 3px;
-        margin-top: 14px;
-        margin-bottom: 8px;
+    .contact span { display: inline-block; margin-right: 10px; white-space: nowrap; }
+    .contact span:not(:last-child)::after { content: "  •"; margin-left: 10px; color: #666; }
+    .section {
+        font-size: 10.5pt; font-weight: 700; letter-spacing: 1.2px;
+        text-transform: uppercase; margin-top: 11px; margin-bottom: 5px;
+        padding-bottom: 2px; border-bottom: .8px solid #000;
     }
-    .entry { margin-bottom: 10px; }
-    .entry-title { font-weight: 700; font-size: 11pt; }
-    .entry-date { font-size: 10pt; }
-    .entry-company { font-weight: 600; font-size: 10.5pt; margin-bottom: 3px; }
-    p { font-size: 10.5pt; margin-bottom: 6px; }
-    ul { margin: 3px 0 0 16px; padding: 0; list-style-type: disc; }
-    ul li { font-size: 10.5pt; margin-bottom: 3px; line-height: 1.45; }
-    table.refs { width: 100%; border-collapse: collapse; font-size: 10.5pt; }
-    table.refs td { vertical-align: top; width: 50%; padding-right: 12px; }
-    .ref-name { font-weight: 700; }
+    .summary { font-size: 10pt; text-align: justify; line-height: 1.4; }
+    .competencies { font-size: 9.8pt; line-height: 1.45; }
+    .job { margin-bottom: 8px; page-break-inside: avoid; }
+    .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+    .job-title { font-size: 10.5pt; font-weight: 700; }
+    .job-date { font-size: 9.3pt; font-weight: 500; color: #333; font-style: italic; white-space: nowrap; }
+    .job-company { font-size: 9.8pt; font-weight: 500; color: #222; font-style: italic; margin: 1px 0 2px 0; }
+    .job ul { margin: 2px 0 0 14px; padding: 0; list-style-type: disc; }
+    .job ul li { font-size: 9.8pt; line-height: 1.4; margin-bottom: 1.5px; }
+    .two-col-list { display: flex; flex-wrap: wrap; margin: 0 -4px; list-style: none; }
+    .two-col-list li {
+        width: 50%; padding: 0 4px 0 14px; margin-bottom: 2px;
+        position: relative; font-size: 9.5pt; line-height: 1.4; box-sizing: border-box;
+    }
+    .two-col-list li::before { content: "▪"; position: absolute; left: 4px; font-size: 8pt; top: 1px; }
+    .languages { font-size: 9.8pt; line-height: 1.45; }
+    .lang-name { font-weight: 700; }
+    .lang-level { color: #333; }
+    .edu-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+    .edu-degree { font-size: 10.5pt; font-weight: 700; }
+    .edu-date { font-size: 9.3pt; font-style: italic; color: #333; white-space: nowrap; }
+    .edu-school { font-size: 9.8pt; font-style: italic; color: #222; margin-top: 1px; }
+    .refs { width: 100%; border-collapse: collapse; font-size: 9.6pt; line-height: 1.4; }
+    .refs td { vertical-align: top; width: 50%; padding: 2px 10px 2px 0; }
+    .ref-name { font-weight: 700; font-size: 10pt; }
+    .ref-role { font-style: italic; color: #222; }
+    .footer-note {
+        margin-top: 10px; padding-top: 4px; border-top: .5px solid #999;
+        font-size: 8.5pt; font-style: italic; text-align: center; color: #555;
+    }
 </style>
 </head>
 <body>
 <div id="cv">
-    <h1 class="name">Jennifel Arreza</h1>
+
+    <div class="name">Jennifel Arreza</div>
+    <div class="title">Hospitality Operations Manager</div>
     <div class="contact">
         <span>Discovery Bay, Hong Kong</span>
         <span>+852 6438 5951</span>
         <span>gjlance@yahoo.com</span>
+        <span>linkedin.com/in/jennifel-arreza</span>
     </div>
 
-    <h2 class="section">Professional Summary</h2>
-    <p>Hospitality Management Professional with 10+ years of experience in luxury hotel operations, guest services, and team leadership. Proven track record in managing outlets, optimizing revenue, and delivering exceptional guest experiences. Adept at staff training, quality assurance, and operational efficiency.</p>
+    <div class="section">Professional Summary</div>
+    <p class="summary">
+        Hospitality Operations Manager with over 10 years of experience leading outlet operations in
+        5-star hotels and premium restaurant groups. Proven expertise in revenue optimization, guest
+        experience management, staff training, and operational excellence. Skilled in budget control,
+        HACCP compliance, and cross-departmental coordination with a track record of consistently
+        exceeding quality and profitability targets.
+    </p>
 
-    <h2 class="section">Core Competencies</h2>
-    <p>Hotel Operations; Guest Relations; Team Leadership; Revenue Management; Event Planning; Quality Assurance; Staff Training; Luxury Service Standards; Inventory Control; Budgeting; HACCP; Crisis Management</p>
+    <div class="section">Core Competencies</div>
+    <p class="competencies">
+        <strong>Operations:</strong> Outlet Management · Team Leadership · Revenue Optimization ·
+        Budgeting &amp; Cost Control · Inventory Management ·
+        <strong>Guest Experience:</strong> Service Recovery · Guest Relations · Quality Assurance ·
+        <strong>Compliance:</strong> HACCP · Crisis Management · First Aid &amp; CPR ·
+        <strong>Development:</strong> Staff Training · Performance Management · Talent Development
+    </p>
 
-    <h2 class="section">Work Experience</h2>
+    <div class="section">Professional Experience</div>
 
-    <div class="entry">
-        <div class="entry-title">Restaurant Manager</div>
-        <div class="entry-date">December 2023 – November 2026</div>
-        <div class="entry-company">IlBelPaese Group (Italian Restaurants), Hong Kong</div>
+    <div class="job">
+        <div class="job-head">
+            <div class="job-title">Restaurant Manager</div>
+            <div class="job-date">Dec 2023 – Nov 2026</div>
+        </div>
+        <div class="job-company">IlBelPaese Group (Italian Restaurants) — Hong Kong</div>
         <ul>
-            <li>Oversee day-to-day operations of all outlets, ensuring efficiency and effectiveness across production and service delivery.</li>
-            <li>Coordinate different departments, set and review budgets, and implement operational policies.</li>
+            <li>Lead day-to-day operations across multiple outlets, ensuring consistent service quality and operational efficiency.</li>
+            <li>Coordinate cross-departmental activities, prepare and review budgets, and implement operational policies that improve profitability.</li>
         </ul>
     </div>
 
-    <div class="entry">
-        <div class="entry-title">Outlet Manager</div>
-        <div class="entry-date">March 2017 – December 2023</div>
-        <div class="entry-company">Asiana Hotel, Dubai (5-Star Hotel), Dubai, UAE</div>
+    <div class="job">
+        <div class="job-head">
+            <div class="job-title">Outlet Manager</div>
+            <div class="job-date">Mar 2017 – Dec 2023</div>
+        </div>
+        <div class="job-company">Asiana Hotel, Dubai (5-Star Hotel) — Dubai, UAE</div>
         <ul>
-            <li>Managed daily restaurant operations including menu selection, development, and performance management of employees.</li>
-            <li>Maintained high production, productivity, quality, and customer-service standards.</li>
-            <li>Optimized profits and ensured guest satisfaction with dining experience.</li>
+            <li>Directed daily restaurant operations including menu selection, product development, and staff performance management.</li>
+            <li>Maintained high standards of production, productivity, quality, and customer service while optimizing profit margins.</li>
+            <li>Elevated guest satisfaction scores through personalized service and consistent service-recovery practices.</li>
         </ul>
     </div>
 
-    <div class="entry">
-        <div class="entry-title">Outlet Assistant Manager</div>
-        <div class="entry-date">March 2011 – March 2017</div>
-        <div class="entry-company">Asiana Hotel, Dubai (5-Star Hotel), Dubai, UAE</div>
+    <div class="job">
+        <div class="job-head">
+            <div class="job-title">Outlet Assistant Manager</div>
+            <div class="job-date">Mar 2011 – Mar 2017</div>
+        </div>
+        <div class="job-company">Asiana Hotel, Dubai (5-Star Hotel) — Dubai, UAE</div>
         <ul>
-            <li>Assisted in managing daily restaurant operations, including selection, development, and performance management of employees.</li>
-            <li>Oversaw inventory and ordering of food and supplies, optimized profits, and ensured guest satisfaction.</li>
+            <li>Supported daily restaurant operations, including recruitment support, employee development, and performance management.</li>
+            <li>Managed inventory, food costing, and supplier ordering, reducing waste and improving profit margins.</li>
         </ul>
     </div>
 
-    <div class="entry">
-        <div class="entry-title">Outlet Supervisor</div>
-        <div class="entry-date">March 2006 – March 2011</div>
-        <div class="entry-company">Waterfront Airport Hotel and Casino, Cebu, Philippines (5-Star Hotel)</div>
+    <div class="job">
+        <div class="job-head">
+            <div class="job-title">Outlet Supervisor</div>
+            <div class="job-date">Mar 2006 – Mar 2011</div>
+        </div>
+        <div class="job-company">Waterfront Airport Hotel and Casino (5-Star Hotel) — Cebu, Philippines</div>
         <ul>
-            <li>Planned, supervised, and monitored dining area operations to ensure efficient administration of food delivery and outlet maintenance.</li>
-            <li>Managed customer traffic, increased revenues and productivity within assigned area and shift, adhering to hotel guidelines and standards.</li>
-            <li>Ensured operational efficiency and dining customer satisfaction through prompt and strategic service delivery.</li>
+            <li>Supervised dining area operations, ensuring efficient food delivery, outlet maintenance, and adherence to hotel standards.</li>
+            <li>Managed customer flow and increased revenue and productivity within assigned shifts.</li>
+            <li>Ensured high dining satisfaction through prompt, strategic service delivery.</li>
         </ul>
     </div>
 
-    <h2 class="section">Awards &amp; Commendations</h2>
-    <ul>
-        <li>Manager of the 3rd Quarter 2025 – IlBelPaese Group (11/2025)</li>
-        <li>Supervisor of the 4th Quarter 2012 – Asiana Hotel (12/2012)</li>
-        <li>Cebu Goes Culinary Table Setting Showcase Competition (Silver Award) – 06/2004</li>
-        <li>F&amp;B Up-seller for Room Service Section – 04/2004</li>
-        <li>Top F&amp;B (Room Service Up-seller) – 12/2003</li>
-        <li>Best Exemplification of Waterfront Way (Be Pro-Active Award) – 06/2003</li>
-        <li>Star of the 1st Quarter 2003 for Front of the House – 04/2003</li>
-        <li>Employee of the Month – 2003</li>
-        <li>Recognition of Deeds (F&amp;B Service) – 2003</li>
-        <li>Cebu Goes Culinary Table Setting Showcase Competition (Silver Award) – 06/2002</li>
+    <div class="section">Education</div>
+    <div class="job">
+        <div class="edu-head">
+            <div class="edu-degree">BS Medical Technology</div>
+            <div class="edu-date">1992 – 1997</div>
+        </div>
+        <div class="edu-school">Southwestern University — Cebu City, Philippines</div>
+    </div>
+
+    <div class="section">Languages</div>
+    <div class="languages">
+        <div><span class="lang-name">English</span> — <span class="lang-level">American English (Full Professional Proficiency)</span></div>
+        <div><span class="lang-name">Tagalog</span> — <span class="lang-level">Philippine Language (Native / Full Professional Proficiency)</span></div>
+    </div>
+
+    <div class="section">Awards &amp; Commendations</div>
+    <ul class="two-col-list">
+        <li>Manager of the 3rd Quarter 2025 — IlBelPaese Group (11/2025)</li>
+        <li>Supervisor of the 4th Quarter 2012 — Asiana Hotel (12/2012)</li>
+        <li>Cebu Goes Culinary Table Setting — Silver Award (06/2004)</li>
+        <li>F&amp;B Up-seller, Room Service Section (04/2004)</li>
+        <li>Top F&amp;B — Room Service Up-seller (12/2003)</li>
+        <li>Best Exemplification of Waterfront Way (06/2003)</li>
+        <li>Star of the 1st Quarter 2003 — Front of the House (04/2003)</li>
+        <li>Employee of the Month (2003)</li>
+        <li>Recognition of Deeds — F&amp;B Service (2003)</li>
+        <li>Cebu Goes Culinary Table Setting — Silver Award (06/2002)</li>
     </ul>
 
-    <h2 class="section">Education</h2>
-    <div class="entry">
-        <div class="entry-title">BS Medical Technology</div>
-        <div class="entry-date">1992 – 1997</div>
-        <div class="entry-company">Southwestern University, Cebu City, Philippines</div>
-    </div>
-
-    <h2 class="section">Languages</h2>
-    <ul>
-        <li>English – American English (Full professional proficiency)</li>
-        <li>Tagalog – Philippine Language (Native / full professional proficiency)</li>
+    <div class="section">Training &amp; Certifications</div>
+    <ul class="two-col-list">
+        <li>HACCP Training (01/2018)</li>
+        <li>Skills Training Techniques Workshop (08/2018)</li>
+        <li>Fire Awareness Training (05/2017)</li>
+        <li>Crisis Management in Hospitality — IHRSA (12/2017)</li>
+        <li>TSI Quality Service PIC Level 3 (2018)</li>
+        <li>TSI Quality Service PIC Level 3 with Merit (10/2012)</li>
+        <li>Basic First Aid &amp; CPR (09/2011)</li>
+        <li>Effective Business Writing Workshop (02/2007)</li>
+        <li>Job Instruction Technique Workshop (01/2006)</li>
+        <li>Protocol Training (12/2005)</li>
+        <li>Skills Certification Program for Butlers (05/2005)</li>
+        <li>Creative Idea Circle Training (11/2002)</li>
     </ul>
 
-    <h2 class="section">Character References</h2>
+    <div class="section">Character References</div>
     <table class="refs">
         <tr>
             <td>
                 <div class="ref-name">Bhawna Sinha</div>
-                <div>HR Director</div>
+                <div class="ref-role">HR Director</div>
                 <div>Asiana Hotel, Deira Dubai</div>
                 <div>Phone: +971 50 697 0723</div>
             </td>
             <td>
                 <div class="ref-name">James Kang</div>
-                <div>Chief Executive</div>
+                <div class="ref-role">Chief Executive</div>
                 <div>Asiana Hotel, Deira Dubai</div>
                 <div>Phone: +971 56 105 1482</div>
             </td>
         </tr>
     </table>
 
-    <h2 class="section">Training &amp; Seminars</h2>
-    <ul>
-        <li>HACCP Training – 01/2018</li>
-        <li>Skills Training Techniques Workshop – 08/2018</li>
-        <li>Fire Awareness Training – 05/2017</li>
-        <li>Crisis Management in Hospitality – International Hotel &amp; Restaurant Association, 12/2017</li>
-        <li>TSI Quality Service PIC level 3 – 2018</li>
-        <li>TSI Quality Service PIC level 3 with Merit – 10/2012</li>
-        <li>Basic First Aid &amp; CPR – 09/2011</li>
-        <li>Effective Business Writing Workshop – 02/2007</li>
-        <li>Job Instruction Technique Workshop – 01/2006</li>
-        <li>Protocol Training – 12/2005</li>
-        <li>Skills Certification Program for Butlers – 05/2005</li>
-        <li>Creative Idea Circle Training – 11/2002</li>
-    </ul>
+    <div class="footer-note">
+        References available upon request. Additional documentation provided during interviews.
+    </div>
+
 </div>
 
 <script>
-    // Auto-generate the PDF as soon as this window loads
     window.addEventListener('load', function() {
         setTimeout(function() {
             var element = document.getElementById('cv');
@@ -713,22 +1574,15 @@
                     scale: 2,
                     useCORS: true,
                     logging: false,
-                    backgroundColor: '#ffffff'
+                    backgroundColor: '#ffffff',
+                    windowWidth: element.scrollWidth,
+                    windowHeight: element.scrollHeight
                 },
-                jsPDF: {
-                    unit: 'mm',
-                    format: 'a4',
-                    orientation: 'portrait',
-                    compress: true
-                },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait', compress: true },
                 pagebreak: { mode: ['css', 'legacy'] }
             };
             html2pdf().set(opt).from(element).save().then(function() {
-                // Notify the opener (main site) that it's done
-                if (window.opener) {
-                    window.opener.postMessage({ type: 'cvDownloaded' }, '*');
-                }
-                // Close this helper window after a short delay
+                if (window.opener) window.opener.postMessage({ type: 'cvDownloaded' }, '*');
                 setTimeout(function() { window.close(); }, 1200);
             }).catch(function(err) {
                 console.error('PDF error:', err);
@@ -745,30 +1599,22 @@
         document.getElementById('download-cv').addEventListener('click', function (e) {
             e.preventDefault();
             showLoading();
-
-            // Open a new window with the ATS CV and auto-generate PDF inside it
             const w = window.open('', '_blank', 'width=900,height=700');
-
             if (!w) {
                 hideLoading();
                 showNotification('Please allow pop-ups to download the CV.', 'error');
                 return;
             }
-
             w.document.open();
             w.document.write(ATS_CV_HTML);
             w.document.close();
-
-            // The helper window will handle PDF generation and close itself
-            // We just hide the loading overlay after a reasonable wait
             setTimeout(() => {
                 hideLoading();
                 showNotification('Your ATS CV is being downloaded...', 'success');
             }, 1500);
         });
 
-        // Listen for the "done" message from the helper window
-        window.addEventListener('message', function(event) {
+        window.addEventListener('message', function (event) {
             if (event.data && event.data.type === 'cvDownloaded') {
                 hideLoading();
                 showNotification('ATS-friendly CV downloaded successfully!', 'success');
@@ -785,8 +1631,8 @@
                     if (targetId === '#') return;
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' });
-                        document.getElementById('nav-links').classList.remove('active');
+                        window.scrollTo({ top: targetElement.offsetTop - 70, behavior: 'smooth' });
+                        navLinks.classList.remove('active');
                     }
                 });
             });
