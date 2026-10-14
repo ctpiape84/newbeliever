@@ -21,15 +21,8 @@
             --transition: all 0.3s ease;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -38,14 +31,8 @@
             background-color: #f9f9f9;
         }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
 
-        /* Header & Navigation */
         header {
             background-color: var(--primary-color);
             color: white;
@@ -56,73 +43,29 @@
             box-shadow: var(--shadow);
         }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: white; text-decoration: none; }
+        .logo span { color: var(--secondary-color); }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-        }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 2rem; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; transition: var(--transition); }
+        .nav-links a:hover { color: var(--secondary-color); }
 
-        .logo span {
-            color: var(--secondary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        .nav-links a.active {
-            color: var(--secondary-color) !important;
-            font-weight: 600;
-            position: relative;
-        }
-
+        .nav-links a.active { color: var(--secondary-color) !important; font-weight: 600; position: relative; }
         .nav-links a.active::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
+            bottom: -5px; left: 0;
+            width: 100%; height: 2px;
             background-color: var(--secondary-color);
             animation: slideIn 0.3s ease;
         }
 
-        @keyframes slideIn {
-            from { width: 0; }
-            to { width: 100%; }
-        }
+        @keyframes slideIn { from { width: 0; } to { width: 100%; } }
 
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
+        .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(26, 71, 42, 0.8), rgba(26, 71, 42, 0.8)),
                 url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
@@ -133,18 +76,8 @@
             text-align: center;
         }
 
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
 
         .btn {
             display: inline-block;
@@ -159,120 +92,43 @@
             cursor: pointer;
         }
 
-        .btn:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
-        }
+        .btn:hover { background-color: var(--accent-color); transform: translateY(-3px); box-shadow: var(--shadow); }
 
-        section {
-            padding: 80px 0;
-        }
+        section { padding: 80px 0; }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
+        .section-title { text-align: center; margin-bottom: 3rem; }
+        .section-title h2 { font-size: 2.5rem; color: var(--primary-color); position: relative; display: inline-block; padding-bottom: 10px; }
         .section-title h2::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 50%;
+            bottom: 0; left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
+            width: 80px; height: 4px;
             background-color: var(--secondary-color);
         }
 
-        /* About Section */
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-        }
+        .about-content { display: flex; align-items: center; gap: 3rem; }
+        .about-img { flex: 1; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
+        .about-img img { width: 100%; height: auto; display: block; transition: var(--transition); }
+        .about-img:hover img { transform: scale(1.05); }
+        .about-text { flex: 2; }
+        .about-text h3 { font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--primary-color); }
+        .about-text p { margin-bottom: 1.5rem; color: var(--text-light); }
 
-        .about-img {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
+        .skills-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; }
+        .skill-tag { background-color: var(--light-color); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; border-left: 3px solid var(--secondary-color); }
 
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: var(--transition);
-        }
-
-        .about-img:hover img {
-            transform: scale(1.05);
-        }
-
-        .about-text {
-            flex: 2;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--text-light);
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 1rem;
-        }
-
-        .skill-tag {
-            background-color: var(--light-color);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border-left: 3px solid var(--secondary-color);
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
+        .timeline { position: relative; max-width: 1000px; margin: 0 auto; }
         .timeline::after {
             content: '';
             position: absolute;
             width: 6px;
             background-color: var(--secondary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
+            top: 0; bottom: 0; left: 50%;
             margin-left: -3px;
         }
 
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-
+        .timeline-item { padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box; }
         .timeline-item:nth-child(odd) { left: 0; }
         .timeline-item:nth-child(even) { left: 50%; }
 
@@ -289,63 +145,15 @@
             border: 1px solid #f8f9fa;
         }
 
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(26, 71, 42, 0.02) 100%);
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-            border-color: var(--secondary-color);
-        }
-
-        .timeline-content:hover::before { opacity: 1; }
-        .timeline-content:hover h3 { color: var(--primary-color); }
-        .timeline-content:hover .date {
-            background: var(--secondary-color);
-            color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-
-        .timeline-content h3 {
-            transition: var(--transition);
-            position: relative;
-            z-index: 2;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-            font-size: 1.3rem;
-        }
-
-        .timeline-content .date {
-            transition: var(--transition);
-            position: relative;
-            z-index: 2;
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .timeline-content p {
-            position: relative;
-            z-index: 2;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
+        .timeline-content:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); border-color: var(--secondary-color); }
+        .timeline-content h3 { transition: var(--transition); position: relative; z-index: 2; margin-bottom: 10px; color: var(--primary-color); font-size: 1.3rem; }
+        .timeline-content .date { transition: var(--transition); position: relative; z-index: 2; color: var(--secondary-color); font-weight: 600; margin-bottom: 10px; display: block; }
+        .timeline-content p { position: relative; z-index: 2; color: var(--text-light); line-height: 1.6; }
 
         .timeline-item::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 20px; height: 20px;
             background-color: white;
             border: 4px solid var(--secondary-color);
             border-radius: 50%;
@@ -356,193 +164,45 @@
 
         .timeline-item:nth-child(odd)::after { right: -10px; }
         .timeline-item:nth-child(even)::after { left: -10px; }
-        .timeline-item:hover::after {
-            transform: scale(1.3);
-            background-color: var(--secondary-color);
-            box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.2);
-        }
 
-        /* Cards */
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .card { background-color: white; border-radius: 8px; box-shadow: var(--shadow); padding: 2rem; transition: var(--transition); border-top: 4px solid var(--secondary-color); min-height: 250px; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
+        .card h3 { color: var(--primary-color); margin-bottom: 1rem; font-size: 1.3rem; }
+        .card p { color: var(--text-light); margin-bottom: 0.5rem; line-height: 1.6; }
 
-        .card {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            padding: 2rem;
-            transition: var(--transition);
-            border-top: 4px solid var(--secondary-color);
-            min-height: 250px;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .card p {
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
-        }
-
-        /* Language */
         .language-item { margin-bottom: 1.5rem; }
-        .language-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-        }
+        .language-name { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
+        .language-bar { height: 10px; background-color: #e0e0e0; border-radius: 5px; overflow: hidden; }
+        .language-progress { height: 100%; background-color: var(--secondary-color); border-radius: 5px; }
 
-        .language-bar {
-            height: 10px;
-            background-color: #e0e0e0;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .language-progress {
-            height: 100%;
-            background-color: var(--secondary-color);
-            border-radius: 5px;
-        }
-
-        /* Training */
         .training-container { max-width: 800px; margin: 0 auto; }
-
-        .training-list {
-            list-style: none;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .training-item {
-            padding: 1.5rem 2rem;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #f0f0f0;
-            transition: var(--transition);
-        }
-
+        .training-list { list-style: none; background-color: white; border-radius: 8px; box-shadow: var(--shadow); overflow: hidden; }
+        .training-item { padding: 1.5rem 2rem; display: flex; align-items: center; border-bottom: 1px solid #f0f0f0; transition: var(--transition); }
         .training-item:last-child { border-bottom: none; }
         .training-item:hover { background-color: #f9f9f9; }
+        .training-date { min-width: 100px; font-weight: 600; color: var(--secondary-color); margin-right: 2rem; font-size: 1rem; }
+        .training-name { flex-grow: 1; font-size: 1.1rem; color: var(--primary-color); }
 
-        .training-date {
-            min-width: 100px;
-            font-weight: 600;
-            color: var(--secondary-color);
-            margin-right: 2rem;
-            font-size: 1rem;
-        }
-
-        .training-name {
-            flex-grow: 1;
-            font-size: 1.1rem;
-            color: var(--primary-color);
-        }
-
-        /* Contact */
-        .contact-container {
-            display: flex;
-            gap: 3rem;
-        }
-
+        .contact-container { display: flex; gap: 3rem; }
         .contact-info { flex: 1; }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            font-size: 1.2rem;
-        }
-
+        .contact-item { display: flex; align-items: center; margin-bottom: 1.5rem; }
+        .contact-icon { width: 50px; height: 50px; background-color: var(--secondary-color); color: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; font-size: 1.2rem; }
         .contact-form { flex: 2; }
         .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        .form-control { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; font-size: 1rem; }
+        textarea.form-control { height: 150px; resize: vertical; }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-
-        textarea.form-control {
-            height: 150px;
-            resize: vertical;
-        }
-
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-radius: 50%;
-            margin: 0 10px;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            transform: translateY(-3px);
-        }
+        footer { background-color: var(--primary-color); color: white; padding: 3rem 0; text-align: center; }
+        .social-links { display: flex; justify-content: center; margin-bottom: 2rem; }
+        .social-links a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.1); color: white; border-radius: 50%; margin: 0 10px; transition: var(--transition); }
+        .social-links a:hover { background-color: var(--secondary-color); color: var(--primary-color); transform: translateY(-3px); }
 
         #scrollToTop {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
+            bottom: 30px; right: 30px;
+            width: 50px; height: 50px;
             background-color: var(--secondary-color);
             color: var(--primary-color);
             border: none;
@@ -559,19 +219,12 @@
             align-items: center;
             justify-content: center;
         }
-
         #scrollToTop.show { opacity: 1; visibility: visible; }
-
-        #scrollToTop:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
+        #scrollToTop:hover { background-color: var(--accent-color); transform: translateY(-3px); }
 
         .pdf-notification {
             position: fixed;
-            top: 100px;
-            right: 20px;
+            top: 100px; right: 20px;
             background: white;
             padding: 15px 20px;
             border-radius: 8px;
@@ -584,196 +237,57 @@
             max-width: 300px;
             animation: slideInRight 0.3s ease;
         }
-
         .pdf-notification.error { border-left-color: #f44336; }
+        .pdf-notification button { background: none; border: none; font-size: 18px; cursor: pointer; color: #666; }
 
-        .pdf-notification button {
-            background: none;
-            border: none;
-            font-size: 18px;
-            cursor: pointer;
-            color: #666;
+        @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        /* Loading overlay */
+        .loading-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+            color: white;
+            font-size: 1.2rem;
         }
-
-        @keyframes slideInRight {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top-color: var(--secondary-color);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
         }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* ============================================
-           ATS CV STYLES (used only inside hidden container)
-           ============================================ */
-        #ats-cv-template {
-            position: absolute;
-            left: -9999px;
-            top: 0;
-            width: 210mm;
-            min-height: 297mm;
-            padding: 18mm 16mm;
-            background: #ffffff;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 10.5pt;
-            line-height: 1.45;
-            color: #000000;
-        }
-
-        #ats-cv-template .ats-name {
-            font-size: 20pt;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-            color: #000000;
-        }
-
-        #ats-cv-template .ats-contact {
-            font-size: 10pt;
-            color: #000000;
-            border-bottom: 1.5px solid #000000;
-            padding-bottom: 8px;
-            margin-bottom: 14px;
-        }
-
-        #ats-cv-template .ats-contact span {
-            display: inline-block;
-            margin-right: 14px;
-        }
-
-        #ats-cv-template .ats-section-title {
-            font-size: 12pt;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            border-bottom: 1.2px solid #000000;
-            padding-bottom: 3px;
-            margin-top: 14px;
-            margin-bottom: 8px;
-            color: #000000;
-        }
-
-        #ats-cv-template .ats-entry { margin-bottom: 10px; }
-
-        #ats-cv-template .ats-entry-title {
-            font-weight: 700;
-            font-size: 11pt;
-            color: #000000;
-        }
-
-        #ats-cv-template .ats-entry-date {
-            font-weight: 400;
-            font-size: 10pt;
-            color: #000000;
-        }
-
-        #ats-cv-template .ats-entry-company {
-            font-weight: 600;
-            font-size: 10.5pt;
-            color: #000000;
-            margin-bottom: 3px;
-        }
-
-        #ats-cv-template p,
-        #ats-cv-template li {
-            font-size: 10.5pt;
-            color: #000000;
-            line-height: 1.45;
-        }
-
-        #ats-cv-template ul {
-            margin: 3px 0 0 16px;
-            padding: 0;
-            list-style-type: disc;
-        }
-
-        #ats-cv-template ul li {
-            margin-bottom: 3px;
-            padding-left: 2px;
-        }
-
-        #ats-cv-template .ats-skills {
-            font-size: 10.5pt;
-            color: #000000;
-        }
-
-        #ats-cv-template .ats-two-col {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-            border-collapse: collapse;
-        }
-
-        #ats-cv-template .ats-two-col > div {
-            display: table-cell;
-            width: 50%;
-            vertical-align: top;
-            padding-right: 12px;
-        }
-
-        #ats-cv-template .ats-ref-name {
-            font-weight: 700;
-            font-size: 10.5pt;
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .about-content, .contact-container { flex-direction: column; }
-        }
+        @media (max-width: 992px) { .about-content, .contact-container { flex-direction: column; } }
 
         @media (max-width: 768px) {
             .hamburger { display: block; }
-
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                right: -100%;
-                flex-direction: column;
-                background-color: var(--primary-color);
-                width: 100%;
-                text-align: center;
-                transition: var(--transition);
-                box-shadow: var(--shadow);
-            }
-
+            .nav-links { position: fixed; top: 70px; right: -100%; flex-direction: column; background-color: var(--primary-color); width: 100%; text-align: center; transition: var(--transition); box-shadow: var(--shadow); }
             .nav-links.active { right: 0; }
             .nav-links li { margin: 1rem 0; }
             .hero-content h1 { font-size: 2.5rem; }
-
             .timeline::after { left: 31px; }
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
             .timeline-item:nth-child(even) { left: 0; }
             .timeline-item::after { left: 21px; }
-            .timeline-item:nth-child(odd)::after,
-            .timeline-item:nth-child(even)::after { left: 21px; }
+            .timeline-item:nth-child(odd)::after, .timeline-item:nth-child(even)::after { left: 21px; }
             .timeline-content { min-height: auto; padding: 20px; }
-
-            .training-item {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 1.2rem 1.5rem;
-            }
-            .training-date {
-                margin-right: 0;
-                margin-bottom: 0.5rem;
-                min-width: auto;
-            }
-
-            #scrollToTop {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
-            }
+            .training-item { flex-direction: column; align-items: flex-start; padding: 1.2rem 1.5rem; }
+            .training-date { margin-right: 0; margin-bottom: 0.5rem; min-width: auto; }
         }
 
         @media (max-width: 576px) {
             .hero-content h1 { font-size: 2rem; }
             .section-title h2 { font-size: 2rem; }
-            .cards-container, .services-grid { grid-template-columns: 1fr; }
+            .cards-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -783,9 +297,7 @@
     <header>
         <div class="container nav-container">
             <a href="#home" class="logo">Jennifel<span>Arreza</span></a>
-            <div class="hamburger" id="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
+            <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -800,7 +312,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="home">
         <div class="container hero-content">
             <h1>Jennifel Arreza</h1>
@@ -811,14 +323,12 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about">
         <div class="container">
             <div class="section-title"><h2>About Me</h2></div>
             <div class="about-content">
-                <div class="about-img">
-                    <img src="fel.jpeg" alt="Jennifel Arreza">
-                </div>
+                <div class="about-img"><img src="fel.jpeg" alt="Jennifel Arreza"></div>
                 <div class="about-text">
                     <h3>Welcome to My Professional Portfolio</h3>
                     <p>I am a dedicated hospitality professional with extensive experience in luxury hotel management,
@@ -847,7 +357,7 @@
         </div>
     </section>
 
-    <!-- Work Experience -->
+    <!-- Experience -->
     <section id="experience" style="background-color: #f5f7fa;">
         <div class="container">
             <div class="section-title"><h2>Work Experience</h2></div>
@@ -1021,22 +531,10 @@
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" class="form-control" required></textarea>
-                        </div>
+                        <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" class="form-control" required></div>
+                        <div class="form-group"><label for="email">Your Email</label><input type="email" id="email" class="form-control" required></div>
+                        <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" class="form-control" required></div>
+                        <div class="form-group"><label for="message">Message</label><textarea id="message" class="form-control" required></textarea></div>
                         <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
@@ -1057,162 +555,15 @@
         </div>
     </footer>
 
-    <!-- =====================================================================
-         HIDDEN ATS CV TEMPLATE
-         This is the layout that will be rendered into the PDF.
-         It's plain text, single-column, no icons, no colors, no images.
-         ATS systems parse this perfectly.
-    ====================================================================== -->
-    <div id="ats-cv-template">
-        <div class="ats-name">Jennifel Arreza</div>
-        <div class="ats-contact">
-            <span>Discovery Bay, Hong Kong</span>
-            <span>+852 6438 5951</span>
-            <span>gjlance@yahoo.com</span>
-        </div>
-
-        <!-- PROFESSIONAL SUMMARY -->
-        <div class="ats-section-title">Professional Summary</div>
-        <p>Hospitality Management Professional with 10+ years of experience in luxury hotel operations, guest
-            services, and team leadership. Proven track record in managing outlets, optimizing revenue, and delivering
-            exceptional guest experiences. Adept at staff training, quality assurance, and operational efficiency.</p>
-
-        <!-- CORE COMPETENCIES -->
-        <div class="ats-section-title">Core Competencies</div>
-        <p class="ats-skills">Hotel Operations; Guest Relations; Team Leadership; Revenue Management; Event Planning;
-            Quality Assurance; Staff Training; Luxury Service Standards; Inventory Control; Budgeting; HACCP; Crisis
-            Management</p>
-
-        <!-- WORK EXPERIENCE -->
-        <div class="ats-section-title">Work Experience</div>
-
-        <div class="ats-entry">
-            <div class="ats-entry-title">Restaurant Manager</div>
-            <div class="ats-entry-date">December 2023 – November 2026</div>
-            <div class="ats-entry-company">IlBelPaese Group (Italian Restaurants), Hong Kong</div>
-            <ul>
-                <li>Oversee day-to-day operations of all outlets, ensuring efficiency and effectiveness across
-                    production and service delivery.</li>
-                <li>Coordinate different departments, set and review budgets, and implement operational policies.</li>
-            </ul>
-        </div>
-
-        <div class="ats-entry">
-            <div class="ats-entry-title">Outlet Manager</div>
-            <div class="ats-entry-date">March 2017 – December 2023</div>
-            <div class="ats-entry-company">Asiana Hotel, Dubai (5-Star Hotel), Dubai, UAE</div>
-            <ul>
-                <li>Managed daily restaurant operations including menu selection, development, and performance
-                    management of employees.</li>
-                <li>Maintained high production, productivity, quality, and customer-service standards.</li>
-                <li>Optimized profits and ensured guest satisfaction with dining experience.</li>
-            </ul>
-        </div>
-
-        <div class="ats-entry">
-            <div class="ats-entry-title">Outlet Assistant Manager</div>
-            <div class="ats-entry-date">March 2011 – March 2017</div>
-            <div class="ats-entry-company">Asiana Hotel, Dubai (5-Star Hotel), Dubai, UAE</div>
-            <ul>
-                <li>Assisted in managing daily restaurant operations, including selection, development, and
-                    performance management of employees.</li>
-                <li>Oversaw inventory and ordering of food and supplies, optimized profits, and ensured guest
-                    satisfaction.</li>
-            </ul>
-        </div>
-
-        <div class="ats-entry">
-            <div class="ats-entry-title">Outlet Supervisor</div>
-            <div class="ats-entry-date">March 2006 – March 2011</div>
-            <div class="ats-entry-company">Waterfront Airport Hotel and Casino, Cebu, Philippines (5-Star Hotel)</div>
-            <ul>
-                <li>Planned, supervised, and monitored dining area operations to ensure efficient administration of
-                    food delivery and outlet maintenance.</li>
-                <li>Managed customer traffic, increased revenues and productivity within assigned area and shift,
-                    adhering to hotel guidelines and standards.</li>
-                <li>Ensured operational efficiency and dining customer satisfaction through prompt and strategic
-                    service delivery.</li>
-            </ul>
-        </div>
-
-        <!-- AWARDS -->
-        <div class="ats-section-title">Awards & Commendations</div>
-        <ul>
-            <li>Manager of the 3rd Quarter 2025 – IlBelPaese Group (11/2025)</li>
-            <li>Supervisor of the 4th Quarter 2012 – Asiana Hotel (12/2012)</li>
-            <li>Cebu Goes Culinary Table Setting Showcase Competition (Silver Award) – 06/2004</li>
-            <li>F&B Up-seller for Room Service Section – 04/2004</li>
-            <li>Top F&B (Room Service Up-seller) – 12/2003</li>
-            <li>Best Exemplification of Waterfront Way (Be Pro-Active Award) – 06/2003</li>
-            <li>Star of the 1st Quarter 2003 for Front of the House – 04/2003</li>
-            <li>Employee of the Month – 2003</li>
-            <li>Recognition of Deeds (F&B Service) – 2003</li>
-            <li>Cebu Goes Culinary Table Setting Showcase Competition (Silver Award) – 06/2002</li>
-        </ul>
-
-        <!-- EDUCATION -->
-        <div class="ats-section-title">Education</div>
-        <div class="ats-entry">
-            <div class="ats-entry-title">BS Medical Technology</div>
-            <div class="ats-entry-date">1992 – 1997</div>
-            <div class="ats-entry-company">Southwestern University, Cebu City, Philippines</div>
-        </div>
-
-        <!-- LANGUAGES -->
-        <div class="ats-section-title">Languages</div>
-        <ul>
-            <li>English – American English (Full professional proficiency)</li>
-            <li>Tagalog – Philippine Language (Native / full professional proficiency)</li>
-        </ul>
-
-        <!-- REFERENCES -->
-        <div class="ats-section-title">Character References</div>
-        <div class="ats-two-col">
-            <div>
-                <div class="ats-ref-name">Bhawna Sinha</div>
-                <div>HR Director</div>
-                <div>Asiana Hotel, Deira Dubai</div>
-                <div>Phone: +971 50 697 0723</div>
-            </div>
-            <div>
-                <div class="ats-ref-name">James Kang</div>
-                <div>Chief Executive</div>
-                <div>Asiana Hotel, Deira Dubai</div>
-                <div>Phone: +971 56 105 1482</div>
-            </div>
-        </div>
-
-        <!-- TRAINING -->
-        <div class="ats-section-title">Training & Seminars</div>
-        <ul>
-            <li>HACCP Training – 01/2018</li>
-            <li>Skills Training Techniques Workshop – 08/2018</li>
-            <li>Fire Awareness Training – 05/2017</li>
-            <li>Crisis Management in Hospitality – International Hotel & Restaurant Association, 12/2017</li>
-            <li>TSI Quality Service PIC level 3 – 2018</li>
-            <li>TSI Quality Service PIC level 3 with Merit – 10/2012</li>
-            <li>Basic First Aid & CPR – 09/2011</li>
-            <li>Effective Business Writing Workshop – 02/2007</li>
-            <li>Job Instruction Technique Workshop – 01/2006</li>
-            <li>Protocol Training – 12/2005</li>
-            <li>Skills Certification Program for Butlers – 05/2005</li>
-            <li>Creative Idea Circle Training – 11/2002</li>
-        </ul>
-    </div>
-
     <script>
         // ============ MOBILE NAV ============
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('nav-links');
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
 
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
+            link.addEventListener('click', () => { navLinks.classList.remove('active'); });
         });
 
         // ============ CONTACT FORM ============
@@ -1225,20 +576,18 @@
         // ============ MENU HIGHLIGHT ============
         function highlightMenuOnScroll() {
             const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a');
+            const links = document.querySelectorAll('.nav-links a');
             let currentSection = '';
 
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - 100;
                 const sectionHeight = section.clientHeight;
-                const sectionId = section.getAttribute('id');
-
                 if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                    currentSection = sectionId;
+                    currentSection = section.getAttribute('id');
                 }
             });
 
-            navLinks.forEach(link => {
+            links.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${currentSection}`) {
                     link.classList.add('active');
@@ -1254,16 +603,11 @@
             scrollBtn.setAttribute('title', 'Scroll to top');
             document.body.appendChild(scrollBtn);
 
-            scrollBtn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+            scrollBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
             window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    scrollBtn.classList.add('show');
-                } else {
-                    scrollBtn.classList.remove('show');
-                }
+                if (window.pageYOffset > 300) scrollBtn.classList.add('show');
+                else scrollBtn.classList.remove('show');
             });
         }
 
@@ -1271,72 +615,232 @@
         function showNotification(message, type) {
             const notification = document.createElement('div');
             notification.className = `pdf-notification ${type}`;
-            notification.innerHTML = `
-                <span>${message}</span>
-                <button onclick="this.parentElement.remove()">&times;</button>
-            `;
+            notification.innerHTML = `<span>${message}</span><button onclick="this.parentElement.remove()">&times;</button>`;
             document.body.appendChild(notification);
-
-            setTimeout(() => {
-                if (notification.parentElement) {
-                    notification.remove();
-                }
-            }, 5000);
+            setTimeout(() => { if (notification.parentElement) notification.remove(); }, 5000);
         }
 
-        // ============ PDF GENERATION (ATS READY) ============
+        // ============ LOADING OVERLAY ============
+        function showLoading() {
+            const overlay = document.createElement('div');
+            overlay.className = 'loading-overlay';
+            overlay.id = 'loadingOverlay';
+            overlay.innerHTML = `<div class="spinner"></div><div>Generating your ATS CV...</div>`;
+            document.body.appendChild(overlay);
+        }
+        function hideLoading() {
+            const overlay = document.getElementById('loadingOverlay');
+            if (overlay) overlay.remove();
+        }
+
+        // ============ ATS CV BUILDER (returns HTML string) ============
+        // IMPORTANT: This is built as a hidden element INSIDE the visible DOM, but
+        // we temporarily make it visible (with opacity 0 / pointer-events none) so
+        // html2canvas can render it properly. Blank PDFs were caused by off-screen positioning.
+        function buildATSCVElement() {
+            const wrapper = document.createElement('div');
+            wrapper.id = 'ats-cv-render';
+            // Position it far away but still rendered — do NOT use display:none or left:-9999px
+            wrapper.style.position = 'fixed';
+            wrapper.style.top = '0';
+            wrapper.style.left = '0';
+            wrapper.style.width = '210mm';
+            wrapper.style.minHeight = '297mm';
+            wrapper.style.background = '#ffffff';
+            wrapper.style.padding = '15mm 14mm';
+            wrapper.style.fontFamily = 'Arial, Helvetica, sans-serif';
+            wrapper.style.fontSize = '10.5pt';
+            wrapper.style.lineHeight = '1.45';
+            wrapper.style.color = '#000000';
+            wrapper.style.zIndex = '-1';
+            wrapper.style.pointerEvents = 'none';
+            wrapper.style.opacity = '0.01'; // slight visibility to force layout
+            wrapper.style.overflow = 'hidden';
+
+            wrapper.innerHTML = `
+                <div style="font-size:20pt;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;color:#000;">Jennifel Arreza</div>
+                <div style="font-size:10pt;color:#000;border-bottom:1.5px solid #000;padding-bottom:8px;margin-bottom:14px;">
+                    Discovery Bay, Hong Kong &nbsp;|&nbsp; +852 6438 5951 &nbsp;|&nbsp; gjlance@yahoo.com
+                </div>
+
+                <div style="font-size:12pt;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-bottom:1.2px solid #000;padding-bottom:3px;margin-top:14px;margin-bottom:8px;color:#000;">Professional Summary</div>
+                <p style="font-size:10.5pt;color:#000;margin:0 0 6px 0;line-height:1.45;">
+                    Hospitality Management Professional with 10+ years of experience in luxury hotel operations, guest
+                    services, and team leadership. Proven track record in managing outlets, optimizing revenue, and
+                    delivering exceptional guest experiences. Adept at staff training, quality assurance, and
+                    operational efficiency.
+                </p>
+
+                <div style="font-size:12pt;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-bottom:1.2px solid #000;padding-bottom:3px;margin-top:14px;margin-bottom:8px;color:#000;">Core Competencies</div>
+                <p style="font-size:10.5pt;color:#000;margin:0 0 6px 0;line-height:1.45;">
+                    Hotel Operations; Guest Relations; Team Leadership; Revenue Management; Event Planning; Quality
+                    Assurance; Staff Training; Luxury Service Standards; Inventory Control; Budgeting; HACCP; Crisis
+                    Management
+                </p>
+
+                <div style="font-size:12pt;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-bottom:1.2px solid #000;padding-bottom:3px;margin-top:14px;margin-bottom:8px;color:#000;">Work Experience</div>
+
+                <div style="margin-bottom:10px;">
+                    <div style="font-weight:700;font-size:11pt;color:#000;">Restaurant Manager</div>
+                    <div style="font-size:10pt;color:#000;">December 2023 – November 2026</div>
+                    <div style="font-weight:600;font-size:10.5pt;color:#000;margin-bottom:3px;">IlBelPaese Group (Italian Restaurants), Hong Kong</div>
+                    <ul style="margin:3px 0 0 16px;padding:0;list-style-type:disc;">
+                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Oversee day-to-day operations of all outlets, ensuring efficiency and effectiveness across production and service delivery.</li>
+                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Coordinate different departments, set and review budgets, and implement operational policies.</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom:10px;">
+                    <div style="font-weight:700;font-size:11pt;color:#000;">Outlet Manager</div>
+                    <div style="font-size:10pt;color:#000;">March 2017 – December 2023</div>
+                    <div style="font-weight:600;font-size:10.5pt;color:#000;margin-bottom:3px;">Asiana Hotel, Dubai (5-Star Hotel), Dubai, UAE</div>
+                    <ul style="margin:3px 0 0 16px;padding:0;list-style-type:disc;">
+                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Managed daily restaurant operations including menu selection, development, and performance management of employees.</li>
+                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Maintained high production, productivity, quality, and customer-service standards.</li>
+                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Optimized profits and ensured guest satisfaction with dining experience.</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom:10px;">
+                    <div style="font-weight:700;font-size:11pt;color:#000;">Outlet Assistant Manager</div>
+                    <div style="font-size:10pt;color:#000;">March 2011 – March 2017</div>
+                    <div style="font-weight:600;font-size:10.5pt;color:#000;margin-bottom:3px;">Asiana Hotel, Dubai (5-Star Hotel), Dubai, UAE</div>
+                    <ul style="margin:3px 0 0 16px;padding:0;list-style-type:disc;">
+                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Assisted in managing daily restaurant operations, including selection, development, and performance management of employees.</li>
+                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Oversaw inventory and ordering of food and supplies, optimized profits, and ensured guest satisfaction.</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom:10px;">
+                    <div style="font-weight:700;font-size:11pt;color:#000;">Outlet Supervisor</div>
+                    <div style="font-size:10pt;color:#000;">March 2006 – March 2011</div>
+                    <div style="font-weight:600;font-size:10.5pt;color:#000;margin-bottom:3px;">Waterfront Airport Hotel and Casino, Cebu, Philippines (5-Star Hotel)</div>
+                    <ul style="margin:3px 0 0 16px;padding:0;list-style-type:disc;">
+                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Planned, supervised, and monitored dining area operations to ensure efficient administration of food delivery and outlet maintenance.</li>
+                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Managed customer traffic, increased revenues and productivity within assigned area and shift, adhering to hotel guidelines and standards.</li>
+                        <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Ensured operational efficiency and dining customer satisfaction through prompt and strategic service delivery.</li>
+                    </ul>
+                </div>
+
+                <div style="font-size:12pt;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-bottom:1.2px solid #000;padding-bottom:3px;margin-top:14px;margin-bottom:8px;color:#000;">Awards & Commendations</div>
+                <ul style="margin:3px 0 0 16px;padding:0;list-style-type:disc;">
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Manager of the 3rd Quarter 2025 – IlBelPaese Group (11/2025)</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Supervisor of the 4th Quarter 2012 – Asiana Hotel (12/2012)</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Cebu Goes Culinary Table Setting Showcase Competition (Silver Award) – 06/2004</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">F&B Up-seller for Room Service Section – 04/2004</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Top F&B (Room Service Up-seller) – 12/2003</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Best Exemplification of Waterfront Way (Be Pro-Active Award) – 06/2003</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Star of the 1st Quarter 2003 for Front of the House – 04/2003</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Employee of the Month – 2003</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Recognition of Deeds (F&B Service) – 2003</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Cebu Goes Culinary Table Setting Showcase Competition (Silver Award) – 06/2002</li>
+                </ul>
+
+                <div style="font-size:12pt;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-bottom:1.2px solid #000;padding-bottom:3px;margin-top:14px;margin-bottom:8px;color:#000;">Education</div>
+                <div style="margin-bottom:10px;">
+                    <div style="font-weight:700;font-size:11pt;color:#000;">BS Medical Technology</div>
+                    <div style="font-size:10pt;color:#000;">1992 – 1997</div>
+                    <div style="font-weight:600;font-size:10.5pt;color:#000;">Southwestern University, Cebu City, Philippines</div>
+                </div>
+
+                <div style="font-size:12pt;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-bottom:1.2px solid #000;padding-bottom:3px;margin-top:14px;margin-bottom:8px;color:#000;">Languages</div>
+                <ul style="margin:3px 0 0 16px;padding:0;list-style-type:disc;">
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">English – American English (Full professional proficiency)</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Tagalog – Philippine Language (Native / full professional proficiency)</li>
+                </ul>
+
+                <div style="font-size:12pt;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-bottom:1.2px solid #000;padding-bottom:3px;margin-top:14px;margin-bottom:8px;color:#000;">Character References</div>
+                <table style="width:100%;border-collapse:collapse;font-size:10.5pt;color:#000;">
+                    <tr>
+                        <td style="vertical-align:top;width:50%;padding-right:12px;">
+                            <div style="font-weight:700;">Bhawna Sinha</div>
+                            <div>HR Director</div>
+                            <div>Asiana Hotel, Deira Dubai</div>
+                            <div>Phone: +971 50 697 0723</div>
+                        </td>
+                        <td style="vertical-align:top;width:50%;">
+                            <div style="font-weight:700;">James Kang</div>
+                            <div>Chief Executive</div>
+                            <div>Asiana Hotel, Deira Dubai</div>
+                            <div>Phone: +971 56 105 1482</div>
+                        </td>
+                    </tr>
+                </table>
+
+                <div style="font-size:12pt;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;border-bottom:1.2px solid #000;padding-bottom:3px;margin-top:14px;margin-bottom:8px;color:#000;">Training & Seminars</div>
+                <ul style="margin:3px 0 0 16px;padding:0;list-style-type:disc;">
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">HACCP Training – 01/2018</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Skills Training Techniques Workshop – 08/2018</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Fire Awareness Training – 05/2017</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Crisis Management in Hospitality – International Hotel & Restaurant Association, 12/2017</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">TSI Quality Service PIC level 3 – 2018</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">TSI Quality Service PIC level 3 with Merit – 10/2012</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Basic First Aid & CPR – 09/2011</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Effective Business Writing Workshop – 02/2007</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Job Instruction Technique Workshop – 01/2006</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Protocol Training – 12/2005</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Skills Certification Program for Butlers – 05/2005</li>
+                    <li style="font-size:10.5pt;color:#000;line-height:1.45;margin-bottom:3px;">Creative Idea Circle Training – 11/2002</li>
+                </ul>
+            `;
+
+            return wrapper;
+        }
+
+        // ============ PDF GENERATION ============
         document.getElementById('download-cv').addEventListener('click', function (e) {
             e.preventDefault();
 
-            const originalText = this.innerHTML;
-            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
-            this.disabled = true;
+            const btn = this;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+            btn.disabled = true;
+            showLoading();
 
-            generateATSPDF().finally(() => {
-                this.innerHTML = originalText;
-                this.disabled = false;
-            });
+            // Build the element in the live DOM
+            const atsElement = buildATSCVElement();
+            document.body.appendChild(atsElement);
+
+            // Wait a tick for layout
+            setTimeout(() => {
+                const opt = {
+                    margin: [0, 0, 0, 0],
+                    filename: 'Jennifel_Arreza_CV.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: {
+                        scale: 2,
+                        useCORS: true,
+                        logging: false,
+                        backgroundColor: '#ffffff',
+                        windowWidth: atsElement.scrollWidth,
+                        windowHeight: atsElement.scrollHeight
+                    },
+                    jsPDF: {
+                        unit: 'mm',
+                        format: 'a4',
+                        orientation: 'portrait',
+                        compress: true
+                    },
+                    pagebreak: { mode: ['css', 'legacy'] }
+                };
+
+                html2pdf().set(opt).from(atsElement).save()
+                    .then(() => {
+                        showNotification('ATS-friendly CV downloaded successfully!', 'success');
+                    })
+                    .catch((error) => {
+                        console.error('PDF generation failed:', error);
+                        showNotification('Failed to generate PDF. Please try again.', 'error');
+                    })
+                    .finally(() => {
+                        // Clean up
+                        if (atsElement.parentElement) atsElement.parentElement.removeChild(atsElement);
+                        hideLoading();
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                    });
+            }, 150);
         });
-
-        async function generateATSPDF() {
-            // Get the hidden ATS template
-            const element = document.getElementById('ats-cv-template');
-
-            // Make sure it's rendered (in case browser optimized it away)
-            element.style.position = 'absolute';
-            element.style.left = '-9999px';
-            element.style.top = '0';
-            element.style.width = '210mm';
-            element.style.background = '#ffffff';
-
-            const opt = {
-                margin: [12, 12, 12, 12], // mm
-                filename: 'Jennifel_Arreza_CV.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: {
-                    scale: 2,
-                    useCORS: true,
-                    logging: false,
-                    backgroundColor: '#ffffff',
-                    letterRendering: true
-                },
-                jsPDF: {
-                    unit: 'mm',
-                    format: 'a4',
-                    orientation: 'portrait',
-                    compress: true
-                },
-                pagebreak: { mode: ['css', 'legacy'] }
-            };
-
-            try {
-                await html2pdf().set(opt).from(element).save();
-                showNotification('ATS-friendly CV downloaded successfully!', 'success');
-            } catch (error) {
-                console.error('PDF generation failed:', error);
-                showNotification('Failed to generate PDF. Please try again.', 'error');
-            }
-        }
 
         // ============ INIT ============
         document.addEventListener('DOMContentLoaded', function () {
@@ -1351,10 +855,7 @@
 
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
+                        window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' });
                         document.getElementById('nav-links').classList.remove('active');
                     }
                 });
